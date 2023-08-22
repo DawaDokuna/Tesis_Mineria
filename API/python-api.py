@@ -1,20 +1,17 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+import test
 
 app = FastAPI()
 
-origins = [
-    "0.0.0.0",
-]
-
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],  # Allow any origin
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-@app.get("/")
+@app.get("/saludo")
 def read_root():
-    return {"message": "Hola, deberia funcionar!"}
+    return {"message": "Hola, debería funcionar asi!"}
