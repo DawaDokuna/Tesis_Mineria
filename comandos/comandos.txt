@@ -1,1 +1,8 @@
 sudo systemctl restart python-api
+
+https://getbootstrap.com/docs/5.3/getting-started/introduction/ 
+
+---Iconos de Bootstrap ---
+
+https://icons.getbootstrap.com
+https://fontawesome.com/icons
