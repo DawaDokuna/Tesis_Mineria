@@ -4,34 +4,50 @@ from sklearn.cluster import KMeans
 from sklearn.datasets import make_blobs
 
 def test():
+    # Datos en tres dimensiones (ejes X, Y y Z)
+    x = [1, 2, 1, 2, 4, 4, 4, 4, 2, 3, 2]
+    y = [1, 1, 2, 2, 1, 2, 3, 4, 4, 4, 5]
+    z = [0, 1, 0, 1, 3, 1, 3, 5, 1, 4, 2]
 
-    # Genera datos aleatorios para el ejemplo
-    n_samples = 300
-    n_features = 2
-    n_clusters = 3
+    # Crear una matriz de puntos 3D
+    data = np.array(list(zip(x, y, z)))
 
-    X, y = make_blobs(n_samples=n_samples, n_features=n_features, centers=n_clusters, random_state=42)
+    # Centroides iniciales
+    initial_centroids = np.array([[1, 1, 0], [2, 1, 1]])
 
-    # Visualiza los datos generados
-    plt.scatter(X[:, 0], X[:, 1], s=50)
-    plt.title("Datos generados")
-    plt.show()
+    # Crear un objeto KMeans con centroides iniciales
+    kmeans = KMeans(n_clusters=2, init=initial_centroids, n_init=1)
 
-    # Crea un objeto KMeans
-    kmeans = KMeans(n_clusters=n_clusters, n_init=10)
+    # Ajustar el modelo a los datos
+    kmeans.fit(data)
 
-    # Ajusta el modelo a los datos
-    kmeans.fit(X)
-
-    # Obtiene las etiquetas de clúster asignadas a cada punto de datos
+    # Obtener las etiquetas de clúster asignadas a cada punto de datos
     labels = kmeans.labels_
 
-    # Obtiene las coordenadas de los centros de clúster
-    cluster_centers = kmeans.cluster_centers_
+    # Crear una malla de valores X y Y
+    x_range = np.linspace(min(x), max(x), 100)
+    y_range = np.linspace(min(y), max(y), 100)
+    xx, yy = np.meshgrid(x_range, y_range)
 
-    # Visualiza los resultados
-    plt.scatter(X[:, 0], X[:, 1], c=labels, s=50, cmap='viridis')
-    plt.scatter(cluster_centers[:, 0], cluster_centers[:, 1], c='red', s=200, marker='X')
-    plt.title("Resultado de K-Means")
+    # Calcular valores Z basados en etiquetas de clúster
+    zz = np.zeros_like(xx)
+    for i in range(len(x_range)):
+        for j in range(len(y_range)):
+            point = np.array([xx[j, i], yy[j, i], 0])
+            distances = np.linalg.norm(data - point, axis=1)
+            nearest_cluster = labels[np.argmin(distances)]
+            zz[j, i] = nearest_cluster
+
+    # Crear un diagrama de contorno 2D
+    plt.contourf(xx, yy, zz, cmap='viridis', levels=[-0.5, 0.5, 1.5, 2.5], alpha=0.6)
+    plt.colorbar()
+    plt.title("Diagrama de Contorno 2D de Clústeres")
+    plt.xlabel("X")
+    plt.ylabel("Y")
+
+    # Visualizar los datos y los centroides
+    plt.scatter(x, y, c=labels, cmap='viridis', s=50)
+    plt.scatter(kmeans.cluster_centers_[:, 0], kmeans.cluster_centers_[:, 1], marker='X', s=200, c='red', label='Centroids')
+    plt.legend()
     plt.show()
 test()
