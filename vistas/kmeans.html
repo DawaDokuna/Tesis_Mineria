@@ -1,0 +1,99 @@
+<section id="call-to-action" class="call-to-action patron">
+  <div class="container aos-init aos-animate" data-aos="zoom-out">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center">
+        <h3>Algoritmo K-Means</h3>
+        <p>
+          El algoritmo K-Means es un algoritmo de aprendizaje no supervisado,
+          que se encarga de agrupar datos en K grupos, donde K es un número
+          entero positivo. El algoritmo K-Means es un algoritmo iterativo, que
+          se encarga de minimizar la suma de las distancias de cada objeto al
+          centroide de su grupo o cluster.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center">
+        <h3>Comencemos!</h3>
+        <p class="fs-5">
+          Primero debe cargar su
+          <a href="?algoritmo=archivo" class="text-light fw-bold">
+            <span
+              class="badge bg-warning fw-3"
+              data-bs-toggle="archivo"
+              data-bs-placement="top"
+              data-bs-custom-class="custom-tooltip"
+              data-bs-title="Si no esta seguro de que debia subir, no olvide revisar nuestro manual dando chick aquí."
+              role="tooltip"
+            >
+              Archivo <i class="fa-solid fa-circle-info"></i>
+            </span>
+          </a>
+          , puede hacerlo desde el boton o arrastrando el archivo a la zona
+        </p>
+      </div>
+    </div>
+    <div>
+      <form class="form" action="#" method="post">
+        <div
+          id="dropzone"
+          class="dropzone bg-primary bg-opacity-10 border border-primary-subtle border-3 border-pill rounded-bottom-0 border-start-0 border-end-0"
+        >
+          <div class="dz-message" data-dz-message>
+            <span>
+              Arrastra archivos aquí o haz clic para seleccionar archivos ARFF o
+              CSV.
+            </span>
+            <br />
+            <i class="bi bi-upload fs-1 fw-bold"></i>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-10 mx-auto">
+      <div id="result"></div>
+    </div>
+  </div>
+</section>
+<script src="funciones/kmeans.js"></script>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Color</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Turtle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Blue</th>
+      <td>Leonardo</td>
+      <td>da Vinci</td>
+      <td>Leo</td>
+    </tr>
+    <tr>
+      <th scope="row">Red</th>
+      <td>Raffaello</td>
+      <td>Sanzio da Urbino</td>
+      <td>Raph</td>
+    </tr>
+    <tr>
+      <th scope="row">Purple</th>
+      <td>Donato</td>
+      <td>di Niccolò di Betto Bardi</td>
+      <td>Donnie</td>
+    </tr>
+    <tr>
+      <th scope="row">Orange</th>
+      <td>Michelangelo</td>
+      <td>di Lodovico Buonarroti Simoni</td>
+      <td>Mikey</td>
+    </tr>
+  </tbody>
+</table>

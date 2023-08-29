@@ -2,9 +2,16 @@ var link = "/dashboard/inicio.html"
 
 var url = new URL(window.location.href);
 var params = new URLSearchParams(url.search);
-var kMeansValue = params.get("kmeans");
-if (kMeansValue != null) {
+var kMeansValue = params.get("algoritmo");
+if (kMeansValue == "archivo") {
+    link= "/vistas/como_crear.html";
+}
+else if (kMeansValue == "kmeans") {
     link= "/vistas/kmeans.html";
+}else if (kMeansValue == "jerarquico") {
+    link= "/vistas/jerarquico.html";
+}else if (kMeansValue == "dbscan") {
+    link= "/vistas/dbscan.html";
 }
 
 $("#main").load(link);
