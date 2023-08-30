@@ -20,11 +20,10 @@ $(document).ready(function () {
       reader.onload = function (e) {
         var contents = e.target.result;
         var lines = contents.split("\n");
-        var thead = [];
-        var tbody = [];
+        var colums_removed = false;
         var columnas = [];
         var filas = [];
-        var tabla = '<table class="table table-responsive" id="kmeans_table">';
+        var tabla = '<table class="table" id="kmeans_table">';
         if (e.target.filename.split(".").pop() == "arff") {
           var data = false;
           for (var i = 0; i < lines.length; i++) {
@@ -35,7 +34,11 @@ $(document).ready(function () {
               data = true;
             } else if (data) {
               var values = lines[i].split(",");
-              filas.push(values);
+              if (values.length != columnas.length) {
+                colums_removed = true;
+              }else{
+                filas.push(values);
+              }
             }
           }
           tabla += "<thead><tr>";
@@ -57,7 +60,11 @@ $(document).ready(function () {
           columnas = lines[0].split(",").length;
           for (var i = 0; i < lines.length; i++) {
             var values = lines[i].split(",");
-            filas.push(values);
+            if (values.length != columnas) {
+              colums_removed = true;
+            }else{
+              filas.push(values);
+            }
           }
           tabla += "<thead><tr>";
           for (let i = 0; i < columnas; i++) {
