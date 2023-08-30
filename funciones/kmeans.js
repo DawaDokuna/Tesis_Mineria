@@ -16,7 +16,6 @@ $(document).ready(function () {
     success: function (file) {
       var reader = new FileReader();
       reader.filename = file.name;
-
       reader.onload = function (e) {
         var contents = e.target.result;
         var lines = contents.split("\n");
@@ -86,10 +85,7 @@ $(document).ready(function () {
         document.getElementById("result").innerHTML = tabla;
         let table = new DataTable("#kmeans_table");
       };
-
       reader.readAsText(file);
-
-      // Puedes realizar acciones adicionales aquí, como mostrar un mensaje de éxito o actualizar la página.
     },
   });
 });
