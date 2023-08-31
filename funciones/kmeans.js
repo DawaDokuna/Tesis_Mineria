@@ -83,7 +83,32 @@ $(document).ready(function () {
         }
         
         document.getElementById("result").innerHTML = tabla;
+        var botones = $('<div/>', {
+          'class': 'd-grid gap-2 d-md-flex justify-content-md-end mt-3'
+      });
+      var boton = $('<button/>', {
+          'class': 'btn btn-primary me-md-2',
+          'type': 'button',
+
+          'text': 'Continuar'
+      });
+      botones.append(boton);
+      $("#botones_table").append(botones);
+      
         let table = new DataTable("#kmeans_table");
+        if (colums_removed) {
+          var alerta = $('<div/>', {
+            'class': 'alert alert-danger mt-3 fw-bold',
+            'role': 'alert',
+            'text': 'Se han eliminado algunas columnas debido a que no todas las filas tienen el mismo número de columnas.'
+        });  
+        $("#mensaje_tabla").append(alerta);   
+        var targetOffset = $("#kmeans_table").offset().top - 200;
+
+        $("html, body").animate({
+            scrollTop: targetOffset
+        }, 2); 
+      }
       };
       reader.readAsText(file);
     },
