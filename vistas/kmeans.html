@@ -54,11 +54,39 @@
         </div>
       </form>
     </div>
-    <div class="col-12 mx-auto mt-3">
-      <div id="botones_table"></div>
+    <div class="col-12 mx-auto mt-3 row">
+      <button
+        type="button"
+        id="btn_opciones"
+        class="btn my-3 col-8 mx-auto py-2 text-light fw-bold"
+        data-bs-toggle="collapse"
+        data-bs-target="#opciones"
+        style="background-color: #243248"
+        hidden
+      >
+        Opciones de conjunto
+      </button>
+      <div class="card collapse mb-3" id="opciones">
+        <div class="card-body">
+          <h5 class="card-title">Opciones de archivo</h5>
+          <div>
+            <div class="input-group mb-3">
+              <label class="input-group-text" for="inputGroupSelect01"
+                >Eliminar columna</label
+              >
+              <select class="form-select" id="inputGroupSelect01">
+                <option selected>Seleccione...</option>
+              </select>
+              <button class="btn btn-outline-secondary" type="button">
+                Eliminar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
       <div id="result" class="table-responsive"></div>
-      <div id="mensaje_tabla"></div>
+      <div id="mensaje-tabla"></div>
     </div>
   </div>
 </section>
-<script src="funciones/kmeans.js"></script>
+<script src="funciones/carga_archivo.js"></script>
