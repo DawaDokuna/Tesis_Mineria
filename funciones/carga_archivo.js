@@ -32,6 +32,7 @@ function cargar_tabla() {
   var lines = contents.split("\n");
   var colums_removed = false;
   var columnas = [];
+  var options_columnas ='<option value="">Seleccione...</option>';
   var filas = [];
   var tabla = '<table class="table" id="file_table">';
   if (archivo[0].split(".").pop() == "arff") {
@@ -40,6 +41,7 @@ function cargar_tabla() {
       var values = lines[i].split(" ");
       if (values[0] == "@attribute") {
         columnas.push(values[1]);
+        options_columnas += '<option value="' + values[1] + '">' + values[1] + '</option>';
       } else if (values[0] == "@data") {
         data = true;
       } else if (data) {
@@ -79,6 +81,7 @@ function cargar_tabla() {
     tabla += "<thead><tr>";
     for (let i = 0; i < columnas; i++) {
       tabla += "<th>Columna " + (i + 1) + "</th>";
+      options_columnas += '<option value="Columna ' + (i + 1) + '">Columna ' + (i + 1) + '</option>';
     }
     tabla += "</tr></thead>";
     tabla += "<tbody>";
@@ -92,19 +95,9 @@ function cargar_tabla() {
     tabla += "</tbody>";
     tabla += "</table>";
   }
-
+  $("#select_delete_col").html(options_columnas);
   document.getElementById("result").innerHTML = tabla;
-  var botones = $("<div/>", {
-    class: "d-grid gap-2 d-md-flex justify-content-md-end mt-3",
-  });
-  var boton = $("<button/>", {
-    class: "btn btn-primary me-md-2",
-    type: "button",
-    onclick: "kmeans()",
-    text: "Continuar",
-  });
-  botones.append(boton);
-  $("#botones_table").append(botones);
+
   $("#btn_opciones").attr("hidden", false);
   let table = new DataTable("#file_table");
   if (colums_removed) {
