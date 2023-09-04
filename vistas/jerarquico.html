@@ -2,40 +2,46 @@
   <div class="container aos-init aos-animate" data-aos="zoom-out">
     <div class="row justify-content-center">
       <div class="col-lg-8 text-center">
-        <h3>Algoritmo K-Means</h3>
+        <h3>Algoritmo Jerarquico</h3>
         <p>
-          El algoritmo K-Means es un algoritmo de 
-          <span
-          class="bg-transparent text-danger"
-          data-bs-toggle="archivo"
-          data-bs-custom-class="custom-tooltip"
-          data-bs-title="Enfoque de minería de datos donde se identifican patrones y estructuras en datos sin etiquetas previas."
-          role="tooltip"
-          >aprendizaje no supervisado</span>,
-          que se encarga de agrupar datos en K grupos, donde K es un número
-          entero positivo. El algoritmo K-Means es un algoritmo 
-          <span
-          class="bg-transparent text-danger"
-          data-bs-toggle="archivo"
-          data-bs-custom-class="custom-tooltip"
-          data-bs-title="Realizar una secuencia de acciones repetidas para alcanzar un objetivo"
-          role="tooltip"
-          >iterativo</span>, que
-          se encarga de minimizar la suma de las distancias de cada objeto al
-          <span
-          class="bg-transparent text-danger"
-          data-bs-toggle="archivo"
-          data-bs-custom-class="custom-tooltip"
-          data-bs-title="Punto central o representativo en un conjunto de datos"
-          role="tooltip"
-          >centroide</span> de su grupo o 
+          El algoritmo jerárquico es una técnica de agrupamiento utilizada en
+          análisis de datos y aprendizaje automático. Comienza considerando cada
+          punto de datos como un 
           <span
           class="bg-transparent text-danger"
           data-bs-toggle="archivo"
           data-bs-custom-class="custom-tooltip"
           data-bs-title="Agrupa datos similares en conjuntos para identificar patrones y relaciones en el análisis de datos."
           role="tooltip"
-          >cluster</span>.
+          >cluster </span> individual y luego evalúa la similitud
+          entre ellos utilizando métricas como la
+          <span
+            class="bg-transparent text-danger"
+            data-bs-toggle="archivo"
+            data-bs-custom-class="custom-tooltip"
+            data-bs-title="Métrica que cuantifica la similitud entre dos puntos o vectores numéricos en un espacio multidimensional."
+            role="tooltip"
+            >distancia euclidiana </span>o la
+          <span
+            class="bg-transparent text-danger"
+            data-bs-toggle="archivo"
+            data-bs-custom-class="custom-tooltip"
+            data-bs-title="Mide la relación estadística entre dos variables para determinar si se mueven juntas o inversamente."
+            role="tooltip"
+            >correlación</span>. Luego, fusiona gradualmente los clusters más similares en clusters
+          más grandes, creando una jerarquía de agrupamientos. Este proceso se
+          repite hasta que todos los datos estén en un solo cluster o hasta que
+          se alcance un criterio de parada. La jerarquía resultante se
+          representa en un 
+          <span
+            class="bg-transparent text-danger"
+            data-bs-toggle="archivo"
+            data-bs-custom-class="custom-tooltip"
+            data-bs-title="Diagrama de árbol que muestra la jerarquía de agrupación de datos "
+            role="tooltip"
+            >dendrograma</span>, que muestra cómo los clusters se agrupan
+          a diferentes niveles de similitud. Esto permite explorar estructuras y
+          patrones en los datos y seleccionar el número de clusters deseado.
         </p>
       </div>
     </div>

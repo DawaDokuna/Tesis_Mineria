@@ -2,40 +2,37 @@
   <div class="container aos-init aos-animate" data-aos="zoom-out">
     <div class="row justify-content-center">
       <div class="col-lg-8 text-center">
-        <h3>Algoritmo K-Means</h3>
+        <h3>Algoritmo DBSCAN</h3>
         <p>
-          El algoritmo K-Means es un algoritmo de 
-          <span
-          class="bg-transparent text-danger"
-          data-bs-toggle="archivo"
-          data-bs-custom-class="custom-tooltip"
-          data-bs-title="Enfoque de minería de datos donde se identifican patrones y estructuras en datos sin etiquetas previas."
-          role="tooltip"
-          >aprendizaje no supervisado</span>,
-          que se encarga de agrupar datos en K grupos, donde K es un número
-          entero positivo. El algoritmo K-Means es un algoritmo 
-          <span
-          class="bg-transparent text-danger"
-          data-bs-toggle="archivo"
-          data-bs-custom-class="custom-tooltip"
-          data-bs-title="Realizar una secuencia de acciones repetidas para alcanzar un objetivo"
-          role="tooltip"
-          >iterativo</span>, que
-          se encarga de minimizar la suma de las distancias de cada objeto al
-          <span
-          class="bg-transparent text-danger"
-          data-bs-toggle="archivo"
-          data-bs-custom-class="custom-tooltip"
-          data-bs-title="Punto central o representativo en un conjunto de datos"
-          role="tooltip"
-          >centroide</span> de su grupo o 
+          DBSCAN (Density-Based Spatial Clustering of Applications with Noise)
+          es un algoritmo de agrupamiento que identifica 
           <span
           class="bg-transparent text-danger"
           data-bs-toggle="archivo"
           data-bs-custom-class="custom-tooltip"
           data-bs-title="Agrupa datos similares en conjuntos para identificar patrones y relaciones en el análisis de datos."
           role="tooltip"
-          >cluster</span>.
+          >clusters</span> en 
+          <span
+          class="bg-transparent text-danger"
+          data-bs-toggle="archivo"
+          data-bs-custom-class="custom-tooltip"
+          data-bs-title="Patrones que se encuentran donde hay grupos densos de puntos"
+          role="tooltip"
+          >datos basados en la densidad</span> de puntos cercanos. Comienza con un punto y
+          encuentra todos los puntos dentro de una distancia específica,
+          formando un cluster si se supera un umbral mínimo de densidad. Esto
+          permite la detección de clusters de diferentes formas y tamaños,
+          mientras maneja puntos de 
+          <span
+          class="bg-transparent text-danger"
+          data-bs-toggle="archivo"
+          data-bs-custom-class="custom-tooltip"
+          data-bs-title="Datos atípicos o inconsistentes que pueden afectar negativamente la precisión de los análisis y modelos"
+          role="tooltip"
+          >ruido</span>. DBSCAN es eficaz para datos con
+          densidades variables y no requiere que se especifique el número de
+          clusters de antemano.
         </p>
       </div>
     </div>
