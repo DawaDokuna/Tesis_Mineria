@@ -93,16 +93,30 @@
       <div class="card collapse mb-3" id="opciones">
         <div class="card-body">
           <h5 class="card-title">Opciones de archivo</h5>
-          <div>
+          <div class="col-sm-12 col-md-8 mx-auto">
             <div class="input-group mb-3">
-              <label class="input-group-text" for="inputGroupSelect01"
+              <label class="input-group-text text-wrap" for="select_delete_col"
                 >Eliminar columna</label
               >
-              <select class="form-select" id="inputGroupSelect01">
+              <select class="form-select" id="select_delete_col">
                 <option selected>Seleccione...</option>
               </select>
               <button class="btn btn-outline-secondary" type="button">
                 Eliminar
+              </button>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-8 mx-auto">
+            <div class="input-group mb-3">
+              <button class="btn btn-outline-secondary" type="button">
+                Eliminar Comillas (",,,")
+              </button>
+              <label class="input-group-text text-wrap"
+                >Eliminar Caracter especial</label
+              >
+              <input type="text" class="form-control" placeholder="Caracter especial">
+              <button class="btn btn-outline-secondary" type="button">
+                Eliminar Caracter
               </button>
             </div>
           </div>
