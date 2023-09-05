@@ -144,13 +144,29 @@ function borrar_columna() {
   lineas = archivo[1].split("\n");
   var archivo_nuevo = [];
   columna_borrar = $("#select_delete_col").val();
-  lineas.forEach((element) => {
-    element.split(",").forEach((element2, index) => {
-      if (index != columna_borrar) {
-        archivo_nuevo.push(element2);
+  if (archivo[0].split(".")[1] == "arff") {
+    var is_data = false;
+    lineas.forEach((element) => {
+      if (element.split(" ")[0] == "@attribute" && !is_data) {
+        if (element.split(" ")[1] != $("#select_delete_col").html()) {
+          archivo_nuevo.push(element);
+        }
       }
     });
-  });
-  archivo[1] = archivo_nuevo.join("\n");
+    log
+    console.log(archivo_nuevo);
+    archivo[1] = archivo_nuevo.join("\n");
+  }else{
+    lineas.forEach((element) => {
+      var lineas_nuevas = [];
+      element.split(",").forEach((element2, index) => {
+        if (index != columna_borrar) {
+          lineas_nuevas.push(element2);
+        }
+      });
+      archivo_nuevo.push(lineas_nuevas.join(","));
+    });
+    archivo[1] = archivo_nuevo.join("\n");
+  }
   cargar_tabla();
 }
