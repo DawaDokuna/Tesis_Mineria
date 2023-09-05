@@ -13,6 +13,16 @@ else if (kMeansValue == "kmeans") {
 }else if (kMeansValue == "dbscan") {
     link= "/vistas/dbscan.html";
 }
+else if (kMeansValue == "davies"){
+    link ="/vistas/davies.html";
+}
+else if (kMeansValue == "calinski"){
+    link ="/vistas/calinski.html";
+}
+else if (kMeansValue == "silh"){
+    link ="/vistas/silh.html";
+}
+
 
 $("#main").load(link);
 

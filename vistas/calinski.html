@@ -1,0 +1,125 @@
+<section id="call-to-action" class="call-to-action patron">
+  <div class="container aos-init aos-animate" data-aos="zoom-out">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center">
+        <h3>Calinski-Harabasz</h3>
+        <p>
+          Se basa en la relación entre la dispersión entre grupos y la
+          dispersión dentro de los grupos. Un valor más alto del índice indica
+          una mejor separación entre los grupos y, por lo tanto, una agrupación
+          más efectiva. Es útil para evaluar la 
+          <span
+          class="bg-transparent text-danger"
+          data-bs-toggle="archivo"
+          data-bs-custom-class="custom-tooltip"
+          data-bs-title="Proximidad entre puntos de datos dentro del mismo grupo en un algoritmo de agrupamiento."
+          role="tooltip"
+          >cohesión </span> y la separación en los
+          resultados del <span
+          class="bg-transparent text-danger"
+          data-bs-toggle="archivo"
+          data-bs-custom-class="custom-tooltip"
+          data-bs-title="Proceso de agrupar datos similares para revelar patrones y estructuras subyacentes."
+          role="tooltip"
+          >clustering</span> y puede ayudar a determinar el número óptimo
+          de grupos. Es una métrica importante para la validación de
+          agrupamientos en aplicaciones de análisis de datos.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center">
+        <h3>Comencemos!</h3>
+        <p class="fs-5">
+          Primero debe cargar su
+          <a href="?algoritmo=archivo" class="text-light fw-bold">
+            <span
+              class="badge bg-warning fw-3"
+              data-bs-toggle="archivo"
+              data-bs-placement="top"
+              data-bs-custom-class="custom-tooltip"
+              data-bs-title="Si no esta seguro de que debia subir, no olvide revisar nuestro manual dando chick aquí."
+              role="tooltip"
+            >
+              Archivo <i class="fa-solid fa-circle-info"></i>
+            </span>
+          </a>
+          , puede hacerlo desde el boton o arrastrando el archivo a la zona
+        </p>
+      </div>
+    </div>
+    <div>
+      <form class="form" action="#" method="post">
+        <div
+          id="dropzone"
+          class="dropzone bg-primary bg-opacity-10 border border-primary-subtle border-3 border-pill rounded-bottom-0 border-start-0 border-end-0"
+        >
+          <div class="dz-message" data-dz-message>
+            <span>
+              Arrastra archivos aquí o haz clic para seleccionar archivos ARFF o
+              CSV.
+            </span>
+            <br />
+            <i class="bi bi-upload fs-1 fw-bold"></i>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-12 mx-auto mt-3 row">
+      <button
+        type="button"
+        id="btn_opciones"
+        class="btn my-3 col-8 mx-auto py-2 text-light fw-bold"
+        data-bs-toggle="collapse"
+        data-bs-target="#opciones"
+        style="background-color: #243248"
+        hidden
+      >
+        Opciones de conjunto
+      </button>
+      <div class="card collapse mb-3" id="opciones">
+        <div class="card-body">
+          <h5 class="card-title">Opciones de archivo</h5>
+          <div class="col-sm-12 col-md-8 mx-auto">
+            <div class="input-group mb-3">
+              <label class="input-group-text text-wrap" for="select_delete_col"
+                >Eliminar columna</label
+              >
+              <select class="form-select" id="select_delete_col">
+                <option selected>Seleccione...</option>
+              </select>
+              <button class="btn btn-outline-secondary" type="button">
+                Eliminar
+              </button>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-8 mx-auto">
+            <div class="input-group mb-3">
+              <button class="btn btn-outline-secondary" type="button">
+                Eliminar Comillas (",,,")
+              </button>
+              <label class="input-group-text text-wrap"
+                >Eliminar Caracter especial</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Caracter especial"
+              />
+              <button class="btn btn-outline-secondary" type="button">
+                Eliminar Caracter
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="result" class="table-responsive"></div>
+      <div id="mensaje-tabla"></div>
+    </div>
+  </div>
+</section>
+<script src="funciones/carga_archivo.js"></script>
