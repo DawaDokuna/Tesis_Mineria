@@ -42,7 +42,7 @@ function cargar_tabla() {
       if (values[0] == "@attribute") {
         columnas.push(values[1]);
         options_columnas +=
-          '<option value="' + j++ + '">' + values[1] + "</option>";
+          '<option value=' + values[1] + '>' + values[1] + "</option>";
       } else if (values[0] == "@data") {
         data = true;
       } else if (data) {
@@ -146,14 +146,30 @@ function borrar_columna() {
   columna_borrar = $("#select_delete_col").val();
   if (archivo[0].split(".")[1] == "arff") {
     var is_data = false;
+    var posision = 0;
     lineas.forEach((element) => {
       if (element.split(" ")[0] == "@attribute" && !is_data) {
-        if (element.split(" ")[1] != $("#select_delete_col").html()) {
+        if (element.split(" ")[1] != columna_borrar) {
           archivo_nuevo.push(element);
+        }else{
+          posision = archivo_nuevo.length;
         }
+      }else if(element.split(" ")[0] == "@data"){
+        is_data = true;
+        archivo_nuevo.push(element);
+
+      }else if(is_data){
+        var lineas_nuevas = [];
+        element.split(",").forEach((element2, index) => {
+          if (index != posision) {
+            lineas_nuevas.push(element2);
+          }
+        });
+        archivo_nuevo.push(lineas_nuevas.join(","));
+      }else{
+        archivo_nuevo.push(element);
       }
     });
-    log
     console.log(archivo_nuevo);
     archivo[1] = archivo_nuevo.join("\n");
   }else{
