@@ -1,6 +1,7 @@
 var archivo = [];
 var data_dropzone;
 $(document).ready(function () {
+  botonera();
   const tooltipTriggerList = document.querySelectorAll(
     '[data-bs-toggle="archivo"]'
   );
@@ -42,7 +43,7 @@ function cargar_tabla() {
       if (values[0] == "@attribute") {
         columnas.push(values[1]);
         options_columnas +=
-          '<option value=' + values[1] + '>' + values[1] + "</option>";
+          "<option value=" + values[1] + ">" + values[1] + "</option>";
       } else if (values[0] == "@data") {
         data = true;
       } else if (data) {
@@ -120,6 +121,65 @@ function cargar_tabla() {
     );
   }
 }
+function botonera() {
+  var btn = $("<button>")
+    .attr({
+      type: "button",
+      id: "btn_opciones",
+      class: "btn my-3 col-8 mx-auto py-2 text-light fw-bold",
+      "data-bs-toggle": "collapse",
+      "data-bs-target": "#opciones",
+      style: "background-color: #243248",
+      hidden: true,
+    })
+    .text("Opciones de conjunto");
+  var card = $("<div>").addClass("card collapse mb-3").attr("id", "opciones");
+  var cardBody = $("<div>").addClass("card-body");
+  var cardTitle = $("<h5>").addClass("card-title").text("Opciones de archivo");
+  var inputGroup1 = $("<div>").addClass(
+    "col-sm-12 col-md-8 mx-auto input-group mb-3"
+  );
+  var label1 = $("<label>")
+    .addClass("input-group-text text-wrap")
+    .attr("for", "select_delete_col")
+    .text("Eliminar columna");
+  var selectDeleteCol = $("<select>")
+    .addClass("form-select")
+    .attr("id", "select_delete_col");
+  selectDeleteCol.append(
+    $("<option>").prop("selected", true).text("Seleccione...")
+  );
+  var buttonDelete = $("<button>")
+    .addClass("btn btn-outline-primary")
+    .attr("type", "button")
+    .text("Eliminar")
+    .click(borrar_columna);
+  inputGroup1.append(label1, selectDeleteCol, buttonDelete);
+  var inputGroup2 = $("<div>").addClass(
+    "col-sm-12 col-md-8 mx-auto input-group mb-3"
+  );
+  var buttonComillas = $("<button>")
+    .addClass("btn btn-outline-primary")
+    .attr("type", "button")
+    .text("Eliminar Comillas")
+    .click(comillas);
+  var div = $("<div>");
+  var inputCaracter = $("<input>").addClass("form-control").attr({
+    type: "text",
+    id: "caracter_a_borrar",
+    placeholder: "Caracter especial",
+  });
+  var buttonCaracter = $("<button>")
+    .addClass("btn btn-outline-primary")
+    .attr("type", "button")
+    .text("Eliminar Caracter")
+    .click(caracter);
+  inputGroup2.append(buttonComillas, div, inputCaracter, buttonCaracter);
+  cardBody.append(cardTitle, inputGroup1, inputGroup2);
+  card.append(cardBody);
+  $("#botonera").append(btn, card);
+}
+
 function comillas() {
   lineas = archivo[1].split("\n");
   var archivo_nuevo = [];
@@ -151,14 +211,13 @@ function borrar_columna() {
       if (element.split(" ")[0] == "@attribute" && !is_data) {
         if (element.split(" ")[1] != columna_borrar) {
           archivo_nuevo.push(element);
-        }else{
+        } else {
           posision = archivo_nuevo.length;
         }
-      }else if(element.split(" ")[0] == "@data"){
+      } else if (element.split(" ")[0] == "@data") {
         is_data = true;
         archivo_nuevo.push(element);
-
-      }else if(is_data){
+      } else if (is_data) {
         var lineas_nuevas = [];
         element.split(",").forEach((element2, index) => {
           if (index != posision) {
@@ -166,13 +225,13 @@ function borrar_columna() {
           }
         });
         archivo_nuevo.push(lineas_nuevas.join(","));
-      }else{
+      } else {
         archivo_nuevo.push(element);
       }
     });
     console.log(archivo_nuevo);
     archivo[1] = archivo_nuevo.join("\n");
-  }else{
+  } else {
     lineas.forEach((element) => {
       var lineas_nuevas = [];
       element.split(",").forEach((element2, index) => {

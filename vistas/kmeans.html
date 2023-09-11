@@ -4,38 +4,42 @@
       <div class="col-lg-8 text-center">
         <h3>Algoritmo K-Means</h3>
         <p>
-          El algoritmo K-Means es un algoritmo de 
+          El algoritmo K-Means es un algoritmo de
           <span
-          class="bg-transparent text-danger"
-          data-bs-toggle="archivo"
-          data-bs-custom-class="custom-tooltip"
-          data-bs-title="Enfoque de minería de datos donde se identifican patrones y estructuras en datos sin etiquetas previas."
-          role="tooltip"
-          >aprendizaje no supervisado</span>,
-          que se encarga de agrupar datos en K grupos, donde K es un número
-          entero positivo. El algoritmo K-Means es un algoritmo 
+            class="bg-transparent text-danger"
+            data-bs-toggle="archivo"
+            data-bs-custom-class="custom-tooltip"
+            data-bs-title="Enfoque de minería de datos donde se identifican patrones y estructuras en datos sin etiquetas previas."
+            role="tooltip"
+            >aprendizaje no supervisado</span
+          >, que se encarga de agrupar datos en K grupos, donde K es un número
+          entero positivo. El algoritmo K-Means es un algoritmo
           <span
-          class="bg-transparent text-danger"
-          data-bs-toggle="archivo"
-          data-bs-custom-class="custom-tooltip"
-          data-bs-title="Realizar una secuencia de acciones repetidas para alcanzar un objetivo"
-          role="tooltip"
-          >iterativo</span>, que
-          se encarga de minimizar la suma de las distancias de cada objeto al
+            class="bg-transparent text-danger"
+            data-bs-toggle="archivo"
+            data-bs-custom-class="custom-tooltip"
+            data-bs-title="Realizar una secuencia de acciones repetidas para alcanzar un objetivo"
+            role="tooltip"
+            >iterativo</span
+          >, que se encarga de minimizar la suma de las distancias de cada
+          objeto al
           <span
-          class="bg-transparent text-danger"
-          data-bs-toggle="archivo"
-          data-bs-custom-class="custom-tooltip"
-          data-bs-title="Punto central o representativo en un conjunto de datos"
-          role="tooltip"
-          >centroide</span> de su grupo o 
+            class="bg-transparent text-danger"
+            data-bs-toggle="archivo"
+            data-bs-custom-class="custom-tooltip"
+            data-bs-title="Punto central o representativo en un conjunto de datos"
+            role="tooltip"
+            >centroide</span
+          >
+          de su grupo o
           <span
-          class="bg-transparent text-danger"
-          data-bs-toggle="archivo"
-          data-bs-custom-class="custom-tooltip"
-          data-bs-title="Agrupa datos similares en conjuntos para identificar patrones y relaciones en el análisis de datos."
-          role="tooltip"
-          >cluster</span>.
+            class="bg-transparent text-danger"
+            data-bs-toggle="archivo"
+            data-bs-custom-class="custom-tooltip"
+            data-bs-title="Agrupa datos similares en conjuntos para identificar patrones y relaciones en el análisis de datos."
+            role="tooltip"
+            >cluster</span
+          >.
         </p>
       </div>
     </div>
@@ -82,50 +86,18 @@
       </form>
     </div>
     <div class="col-12 mx-auto mt-3 row">
-      <button
-        type="button"
-        id="btn_opciones"
-        class="btn my-3 col-8 mx-auto py-2 text-light fw-bold"
-        data-bs-toggle="collapse"
-        data-bs-target="#opciones"
-        style="background-color: #243248"
-        hidden
-      >
-        Opciones de conjunto
-      </button>
-      <div class="card collapse mb-3" id="opciones">
-        <div class="card-body">
-          <h5 class="card-title">Opciones de archivo</h5>
-          <div class="col-sm-12 col-md-8 mx-auto">
-            <div class="input-group mb-3">
-              <label class="input-group-text text-wrap" for="select_delete_col"
-                >Eliminar columna</label
-              >
-              <select class="form-select" id="select_delete_col">
-                <option selected>Seleccione...</option>
-              </select>
-              <button class="btn btn-outline-primary" onclick="borrar_columna()" type="button">
-                Eliminar
-              </button>
-            </div>
-          </div>
-          <div class="col-sm-12 col-md-8 mx-auto">
-            <div class="input-group mb-3">
-              <button class="btn btn-outline-primary" onclick="comillas()" type="button">
-                Eliminar Comillas
-              </button>
-              <div></div>
-              <input type="text" class="form-control" id="caracter_a_borrar" placeholder="Caracter especial">
-              <button onclick="caracter()" class="btn btn-outline-primary" type="button">
-                Eliminar Caracter
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div id="botonera" class="row"></div>
       <div id="result" class="table-responsive"></div>
       <div id="mensaje-tabla"></div>
+      <div class="card">
+          <div class="card-body">
+              <h5 class="card-title">Card Title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <button href="#" class="btn btn-primary" onclick="printer()">Go somewhere</>
+          </div>
+      </div>
     </div>
   </div>
 </section>
 <script src="funciones/carga_archivo.js"></script>
+<script src="funciones/kmeans.js"></script>
