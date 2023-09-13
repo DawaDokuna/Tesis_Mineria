@@ -103,7 +103,9 @@ function cargar_tabla() {
   document.getElementById("result").innerHTML = tabla;
 
   $("#btn_opciones").attr("hidden", false);
-  let table = new DataTable("#file_table");
+  let table = new DataTable("#file_table", {
+    ordering: false
+  });
   if (colums_removed) {
     var alerta = $("<div/>", {
       class: "alert alert-danger mt-3 fw-bold",
@@ -126,10 +128,9 @@ function botonera() {
     .attr({
       type: "button",
       id: "btn_opciones",
-      class: "btn my-3 col-8 mx-auto py-2 text-light fw-bold",
+      class: "btn my-3 col-8 btn-primary mx-auto py-2 text-light fw-bold",
       "data-bs-toggle": "collapse",
       "data-bs-target": "#opciones",
-      style: "background-color: #243248",
       hidden: true,
     })
     .text("Opciones de conjunto");
@@ -229,7 +230,6 @@ function borrar_columna() {
         archivo_nuevo.push(element);
       }
     });
-    console.log(archivo_nuevo);
     archivo[1] = archivo_nuevo.join("\n");
   } else {
     lineas.forEach((element) => {
