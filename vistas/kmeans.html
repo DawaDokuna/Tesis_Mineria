@@ -89,12 +89,53 @@
       <div id="botonera" class="row"></div>
       <div id="result" class="table-responsive"></div>
       <div id="mensaje-tabla"></div>
-      <div class="card">
-          <div class="card-body">
-              <h5 class="card-title">Card Title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <button href="#" class="btn btn-primary" onclick="printer()">Go somewhere</>
+      <div class="collapse fade" id="parametros">
+        <div class="card">
+          <div class="card-body row">
+            <form onsubmit="return false" id="parametros_form" class="row">
+              <h5 class="card-title">Parámetros</h5>
+              <div class="input-group mb-3">
+                <label for="num_cluster" class="input-group-text"
+                  >Número de centroides
+                </label>
+                <div class="input-group-text">
+                  <span
+                    class="bg-transparent text-danger"
+                    data-bs-toggle="archivo"
+                    data-bs-custom-class="custom-tooltip"
+                    data-bs-title="Número de grupos que se esperan formar."
+                    role="tooltip"
+                    ><i class="bi bi-info-circle"></i
+                  ></span>
+                </div>
+                <input
+                  type="number"
+                  min="1"
+                  max="20"
+                  step="1"
+                  class="form-control"
+                  id="num_cluster"
+                  placeholder="Número de centroides"
+                  required
+                />
+              </div>
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01"
+                  >Maximo de iteraciones</label
+                >
+                <input type="number" class="form-control" id="max_iter" />
+              </div>
+              <button
+                href="#"
+                type="submit"
+                class="btn btn-primary col-sm-11 col-lg-8 mx-auto py-2"
+                onclick="printer()"
+              >
+                Iniciar
+              </button>
+            </form>
           </div>
+        </div>
       </div>
     </div>
   </div>

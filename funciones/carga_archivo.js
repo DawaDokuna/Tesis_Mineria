@@ -25,6 +25,7 @@ $(document).ready(function () {
         data_dropzone.removeAllFiles();
       };
       reader.readAsText(file);
+      $("#parametros").collapse("show");
     },
   });
 });
@@ -99,12 +100,12 @@ function cargar_tabla() {
     tabla += "</table>";
   }
   $("#select_delete_col").html(options_columnas);
-  document.getElementById("result").innerHTML = "";
-  document.getElementById("result").innerHTML = tabla;
+  $("#result").empty();
+  $("#result").html(tabla);
 
   $("#btn_opciones").attr("hidden", false);
   let table = new DataTable("#file_table", {
-    ordering: false
+    ordering: false,
   });
   if (colums_removed) {
     var alerta = $("<div/>", {
@@ -244,4 +245,47 @@ function borrar_columna() {
     archivo[1] = archivo_nuevo.join("\n");
   }
   cargar_tabla();
+}
+function format_data() {
+  var contents = archivo[1];
+  var lines = contents.split("\n");
+  var columnas = [];
+  var filas = {};
+  if (archivo[0].split(".").pop() == "arff") {
+    var data = false;
+    for (var i = 0, j = 0; i < lines.length; i++) {
+      var values = lines[i].split(" ");
+      if (values[0] == "@attribute") {
+        columnas.push(values[1]);
+      } else if (values[0] == "@data") {
+        data = true;
+        columnas.forEach((columna) => {
+          filas[columna] = [];
+        });
+      } else if (data) {
+        var values = lines[i].split(",");
+        if (values.length == columnas.length) {
+          values.forEach((value, index) => {
+            const columnName = columnas[index];
+            filas[columnName].push(value.replaceAll('\r', ""));
+          });
+        }
+      }
+    }
+  } else {
+    var columnas_num = lines[0].split(",").length;
+    for (let i = 0; i < columnas_num; i++) {
+      filas["Columna " + (i+1)] = [];
+    }
+    for (var i = 0; i < lines.length; i++) {
+      var values = lines[i].split(",");
+      if (values.length == columnas_num) {
+        values.forEach((value, index) => {
+          const columnName = "Columna " + (index+1);
+          filas[columnName].push(value.replaceAll('\r', ""));
+        });
+      }
+    }
+  }
+  return filas;
 }

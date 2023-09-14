@@ -1,5 +1,6 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
+
 
 app = FastAPI()
 
@@ -11,10 +12,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/kmeans")
-def read_root():
-    return {"message": "Es el kmeans"}
-
-@app.get("/jerarquico")
-def read_root():
-    return {"message": "Es el jerarquico"}
+@app.post("/kmeans")
+async def kmeans_endpoint(request: Request):
+    peticion = await request.json()
+    return str("hola")
