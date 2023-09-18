@@ -1,6 +1,9 @@
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-import kmeans
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.cluster import KMeans
+from sklearn.datasets import make_blobs
 app = FastAPI()
 
 app.add_middleware(
@@ -13,5 +16,8 @@ app.add_middleware(
 
 @app.post("/kmeans")
 async def kmeans_endpoint(request: Request):
-    peticion = await request.json()
-    return str("hola")
+    peticion = await request.json()    
+    try:
+        return "librerias importadas"
+    except Exception as e:
+        return str(e)

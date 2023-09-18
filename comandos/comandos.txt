@@ -1,5 +1,8 @@
 sudo systemctl restart python-api
 
+cd /home/dawaserver/server/venv
+source bin/activate
+
 https://getbootstrap.com/docs/5.3/getting-started/introduction/ 
 
 ---Iconos de Bootstrap ---
