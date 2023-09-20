@@ -8,20 +8,10 @@ def test():
     x = [1, 2, 1, 2, 4, 4, 4, 4, 2, 3, 2]
     y = [1, 1, 2, 2, 1, 2, 3, 4, 4, 4, 5]
     z = [0, 1, 0, 1, 3, 1, 3, 5, 1, 4, 2]
-
-    # Crear una matriz de puntos 3D
     data = np.array(list(zip(x, y, z)))
-
-    # Centroides iniciales
     initial_centroids = np.array([[1, 1, 0], [2, 1, 1]])
-
-    # Crear un objeto KMeans con centroides iniciales
     kmeans = KMeans(n_clusters=2, init=initial_centroids, n_init=1)
-
-    # Ajustar el modelo a los datos
     kmeans.fit(data)
-
-    # Obtener las etiquetas de clúster asignadas a cada punto de datos
     labels = kmeans.labels_
 
     # Crear una malla de valores X y Y

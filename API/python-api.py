@@ -16,8 +16,18 @@ app.add_middleware(
 
 @app.post("/kmeans")
 async def kmeans_endpoint(request: Request):
-    peticion = await request.json()
-    centroides = peticion['parametros']['clusters']
-    datos = peticion['datos']
-    return str(datos)
-    
+    try:    
+        peticion = await request.json()
+        centroides = int(peticion['clusters'])
+        iteraciones = int(peticion['iteraciones']) if peticion['iteraciones'] != '' else None
+        valores_columnas = []
+        for columna in peticion['datos']:
+            valores_columnas.append(columna)
+        data = np.array(valores_columnas)        
+        centroides_iniciales = data[:centroides]
+        kmeans = KMeans(n_clusters=centroides, init=centroides_iniciales, n_init=1, max_iter=iteraciones)
+        kmeans.fit(data)
+        centroides_kmeans = kmeans.cluster_centers_
+        return centroides_kmeans.tolist()
+    except Exception as e:
+        return str(e)
