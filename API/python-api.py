@@ -16,8 +16,8 @@ app.add_middleware(
 
 @app.post("/kmeans")
 async def kmeans_endpoint(request: Request):
-    peticion = await request.json()    
-    try:
-        return "librerias importadas"
-    except Exception as e:
-        return str(e)
+    peticion = await request.json()
+    centroides = peticion['parametros']['clusters']
+    datos = peticion['datos']
+    return str(datos)
+    

@@ -11,21 +11,4 @@ var liks = {
     "silh": "/vistas/silh.html"
 }
 var link = liks[kMeansValue]??"/dashboard/inicio.html";
-
 $("#main").load(link);
-
-// $(document).ready(function() {
-    // $.ajax({
-    //     url: document.location.origin + ':8000/jerarquico',  
-    //     type: 'POST',
-    //     data: [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-    //     dataType: 'json',
-    //     success: function(response) {
-    //         console.log(response.message);
-    //     },
-    //     error: function(error) {
-    //         console.log(error);
-    //     }
-    // });
-// });
-
