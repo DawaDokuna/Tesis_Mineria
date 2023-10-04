@@ -15,7 +15,17 @@ async function printer() {
       body: JSON.stringify(peticion),
     });
     const data = await response.json();
-    console.log(data);
+    var respuesta = JSON.parse(data);
+    $("#parametros_form").append(
+      $("<img>", {
+        src: "data:image/png;base64," + respuesta.imagen,
+        alt: "Kmeans",
+        class: "img-fluid",
+        style: "max-width: 100%; height: auto;",
+        id: "kmeans_img",
+      })
+    );
+    console.log($("#kmeans_img"));
   }
 }
 
