@@ -333,10 +333,8 @@ $(document).on("click", '[name="grafico"]', function () {
 						left: "15%",
 					},
 					300
-				); // Animación de entrada de la imagen
+				);
 			}
-
-			// Función para cerrar la imagen de pantalla completa
 			function closeFullscreen() {
 				fullscreenImage.animate(
 					{
@@ -349,10 +347,8 @@ $(document).on("click", '[name="grafico"]', function () {
 					function () {
 						fullscreenContainer.remove();
 					}
-				); // Animación de salida de la imagen
+				);
 			}
-
-			// Abrir la imagen de pantalla completa al cargar la página
 			openFullscreen();
 		}
 	}
