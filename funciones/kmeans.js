@@ -21,4 +21,3 @@ async function printer() {
     $("#grafico2").attr("hidden", false).find("img").attr("src", "data:image/png;base64," + respuesta.segundo_grafico);
   }
 }
-
