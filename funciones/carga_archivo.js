@@ -1,4 +1,5 @@
 var archivo = [];
+var archivo_nuevo = [];
 var data_dropzone;
 $(document).ready(function () {
 	botonera();
@@ -30,6 +31,7 @@ $(document).ready(function () {
 	});
 });
 function cargar_tabla() {
+	archivo[1]=archivo[1].replaceAll(/\r/g, "");
 	var contents = archivo[1];
 	var lines = contents.split("\n");
 	var colums_removed = false;
@@ -201,7 +203,6 @@ function caracter() {
 	archivo[1] = archivo_nuevo.join("\n");
 	cargar_tabla();
 }
-
 function borrar_columna() {
 	lineas = archivo[1].split("\n");
 	var archivo_nuevo = [];
