@@ -87,6 +87,11 @@
 			<div id="botonera" class="row"></div>
 			<div id="result" class="table-responsive"></div>
 			<div id="mensaje-tabla"></div>
+			<div class="col-12 my-2 row" id="btn_centroides" hidden>
+				<button class="btn btn-outline-primary col-lg-8 mx-auto" data-tipo="1" onclick="cargar_tabla()">
+					Datos sin Clasificar
+				</button>
+			</div>
 			<div class="collapse fade" id="parametros">
 				<div class="card">
 					<div class="card-body row">
@@ -161,25 +166,34 @@
 					</div>
 				</div>
 				<div class="row my-2 px-0 mx-0 g-2">
-					<div class="card shadow col-sm-12 col-lg-5 mx-auto" id="grafico1" hidden>
+					<div
+						class="card shadow col-sm-12 col-lg-5 mx-auto"
+						id="grafico1"
+						hidden>
 						<img
 							class="card-img-top"
-							alt="Grafico que muestra objetos/centroides" 
-							style="cursor: pointer;"
+							alt="Grafico que muestra objetos/centroides"
+							style="cursor: pointer"
 							name="grafico" />
 						<div class="card-body">
 							<h4 class="card-title">Grafico que muestra objetos/centroides</h4>
 						</div>
 					</div>
-					<div class="card shadow col-sm-12 col-lg-5 mx-auto" id="grafico2" hidden>
+					<div
+						class="card shadow col-sm-12 col-lg-5 mx-auto"
+						id="grafico2"
+						hidden>
 						<img
 							class="card-img-top"
-							alt="Grafico que muestra objetos/centroides" 
-							style="cursor: pointer;"
+							alt="Grafico que muestra objetos/centroides"
+							style="cursor: pointer"
 							name="grafico" />
 						<div class="card-body">
 							<h4 class="card-title">Grafico que muestra centroides/objetos</h4>
 						</div>
+					</div>
+					<div class="col-12 col-lg-8 mx-auto">
+						<button type="button" class="btn btn-outline-primary">Button</button>
 					</div>
 				</div>
 			</div>

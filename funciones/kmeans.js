@@ -26,24 +26,25 @@ async function printer() {
 			.attr("src", "data:image/png;base64," + respuesta.segundo_grafico);
 		var contents = archivo[1];
 		var lines = contents.split("\n");
-	}
-	var newLines = [];
-	var encontrado = false;
-	if (archivo[0].split(".").pop() == "arff") {
-		lines.forEach((element) => {
-			if (element.includes("@data")) {
-				newLines.push("@attribute Cluster categoric");
-				newLines.push(element);
-				encontrado = true;
-			} else if (element.includes("@attribute")) newLines.push(element);
-			else return;
+		var newLines = [];
+		var encontrado = false;
+		if (archivo[0].split(".").pop() == "arff") {
+			lines.forEach((element) => {
+				if (element.includes("@data")) {
+					newLines.push("@attribute Cluster categoric");
+					newLines.push(element);
+					encontrado = true;
+				} else if (element.includes("@attribute")) newLines.push(element);
+				else return;
+			});
+		}
+		respuesta["data"].forEach((element) => {
+			newLines.push(element.join(","));
 		});
+		newLines = newLines.join("\n");
+		archivo_nuevo = [archivo[0], newLines];
+		$("#btn_centroides").attr("hidden", false);
+		$("#btn_centroides").data("tipo",1);
+		cargar_tabla();
 	}
-	respuesta["data"].forEach((element) => {
-		newLines.push(element.join(","));
-	});
-	newLines = newLines.join("\n");
-	archivo_nuevo = archivo;
-	archivo[1] = newLines;
-	cargar_tabla();
 }

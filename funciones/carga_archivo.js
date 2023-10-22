@@ -1,38 +1,15 @@
 var archivo = [];
 var archivo_nuevo = [];
 var data_dropzone;
-$(document).ready(function () {
-	botonera();
-	const tooltipTriggerList = document.querySelectorAll(
-		'[data-bs-toggle="archivo"]'
-	);
-	const tooltipList = [...tooltipTriggerList].map(
-		(tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
-	);
-	Dropzone.autoDiscover = false;
-	data_dropzone = new Dropzone("#dropzone", {
-		url: "/archivos/dropzone",
-		acceptedFiles: ".arff, .csv",
-		dictDefaultMessage:
-			"Arrastra un archivo aquí o haz clic para seleccionar un archivo ARFF o CSV.",
-		maxFiles: 1,
-		uploadMultiple: false,
-		success: function (file) {
-			archivo[0] = file.name;
-			var reader = new FileReader();
-			reader.onload = function (e) {
-				archivo[1] = e.target.result;
-				cargar_tabla();
-				data_dropzone.removeAllFiles();
-			};
-			reader.readAsText(file);
-			$("#parametros").collapse("show");
-		},
-	});
-});
 function cargar_tabla() {
-	archivo[1]=archivo[1].replaceAll(/\r/g, "");
-	var contents = archivo[1];
+	archivo[1] = archivo[1].replaceAll(/\r/g, "");
+	if ($("#btn_centroides").data("tipo") == 1 && archivo_nuevo.length != 0) {
+		var contents = archivo_nuevo[1];
+		$("#btn_centroides").data("tipo",2);
+	} else {
+		var contents = archivo[1];
+		$("#btn_centroides").data("tipo",1);
+	}
 	var lines = contents.split("\n");
 	var colums_removed = false;
 	var columnas = [];
@@ -183,7 +160,6 @@ function botonera() {
 	card.append(cardBody);
 	$("#botonera").append(btn, card);
 }
-
 function comillas() {
 	lineas = archivo[1].split("\n");
 	var archivo_nuevo = [];
@@ -353,4 +329,34 @@ $(document).on("click", '[name="grafico"]', function () {
 			openFullscreen();
 		}
 	}
+});
+$(document).ready(function () {
+	botonera();
+	const tooltipTriggerList = document.querySelectorAll(
+		'[data-bs-toggle="archivo"]'
+	);
+	const tooltipList = [...tooltipTriggerList].map(
+		(tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
+	);
+	Dropzone.autoDiscover = false;
+	data_dropzone = new Dropzone("#dropzone", {
+		url: "/archivos/dropzone",
+		acceptedFiles: ".arff, .csv",
+		dictDefaultMessage:
+			"Arrastra un archivo aquí o haz clic para seleccionar un archivo ARFF o CSV.",
+		maxFiles: 1,
+		uploadMultiple: false,
+		success: function (file) {
+			archivo[0] = file.name;
+			var reader = new FileReader();
+			reader.onload = function (e) {
+				archivo[1] = e.target.result;
+				cargar_tabla();
+				data_dropzone.removeAllFiles();
+			};
+			reader.readAsText(file);
+			$("#parametros").collapse("show");
+			archivo_nuevo = [];
+		},
+	});
 });

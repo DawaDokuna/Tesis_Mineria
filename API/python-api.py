@@ -45,6 +45,7 @@ async def kmeans_endpoint(request: Request):
                 "data": data_con_etiquetas.tolist(),
                 "primer_grafico": primer_grafico,
                 "segundo_grafico": segundo_grafico,
+                "centros":kmeans.cluster_centers_.tolist()
             }
         )
     except Exception as e:
