@@ -9,7 +9,7 @@ def crear_grafico_kmeans(etiquetas_de_cluster):
     centroides = np.unique(etiquetas_de_cluster)
     for centroide in centroides:
         objetos_en_centroide = objetos[etiquetas_de_cluster == centroide]
-        ax.scatter(objetos_en_centroide+1, [centroide+1] * len(objetos_en_centroide), label=f'Cluster {centroide +1}')
+        ax.scatter(objetos_en_centroide, [centroide] * len(objetos_en_centroide), label=f'Cluster {centroide }')
     ax.set_xlabel('Objetos')
     ax.set_ylabel('Centroides')
     ax.legend()
@@ -23,7 +23,7 @@ def crear_grafico_kmeans2(etiquetas_de_cluster):
     centroides = np.unique(etiquetas_de_cluster)
     cuenta_por_centroide = [np.sum(etiquetas_de_cluster == centroide) for centroide in centroides]
     colores_personalizados = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#e377c2', '#7f7f7f', '#bcbd22', '#17becf']
-    ax.bar(centroides, cuenta_por_centroide, color=colores_personalizados[:len(centroides)], tick_label=centroides+1)
+    ax.bar(centroides, cuenta_por_centroide, color=colores_personalizados[:len(centroides)], tick_label=centroides)
     ax.set_xlabel('Centroides')
     ax.set_ylabel('Número de Objetos')
     img_data = BytesIO()

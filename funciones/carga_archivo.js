@@ -263,6 +263,16 @@ function format_data() {
 	}
 	return [filas, columnas];
 }
+function descargar(){
+    // Crear un objeto Blob con el contenido y el tipo MIME apropiado
+    const blob = new Blob([archivo_nuevo[1]], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const enlace = document.createElement('a');
+    enlace.href = url;
+    enlace.download = "kmeans_"+$("#num_cluster").val()+"_Clusters" + '.' + archivo_nuevo[0];
+    enlace.click();
+    URL.revokeObjectURL(url);
+}
 $(document).on("click", '[name="grafico"]', function () {
 	var imageSrc = $(this).attr("src");
 	if (imageSrc && imageSrc !== "#") {

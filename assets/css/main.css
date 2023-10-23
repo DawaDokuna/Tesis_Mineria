@@ -22,7 +22,7 @@
 /* Colors */
 :root {
   --color-default: #0a0d13;
-  --color-primary: #0d42ff;
+  --color-primary: #0e1d34;
   --color-secondary: #0e1d34;
 }
 
@@ -1766,7 +1766,7 @@ section {
 }
 
 .hero form .btn-primary:hover {
-  background-color: #2756ff;
+  background-color: #2e3f5a;
 }
 
 .hero .stats-item {
