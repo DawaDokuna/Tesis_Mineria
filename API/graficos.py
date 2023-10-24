@@ -2,6 +2,7 @@ from io import BytesIO
 import base64
 from matplotlib import pyplot as plt
 import numpy as np
+from scipy.cluster.hierarchy import linkage, dendrogram
 
 def crear_grafico_kmeans(etiquetas_de_cluster):
     fig, ax = plt.subplots(figsize=(8, 6))
@@ -28,5 +29,16 @@ def crear_grafico_kmeans2(etiquetas_de_cluster):
     ax.set_ylabel('Número de Objetos')
     img_data = BytesIO()
     fig.savefig(img_data, format='png')
+    img_data.seek(0)
+    return base64.b64encode(img_data.read()).decode()
+
+def crear_grafico_jerarquico(data):
+    linkage_matrix = linkage(data, method='ward') 
+    dendrogram(linkage_matrix)
+    plt.title('Dendrogram')
+    plt.xlabel('Samples')
+    plt.ylabel('Distance')
+    img_data = BytesIO()
+    plt.savefig(img_data, format='png')
     img_data.seek(0)
     return base64.b64encode(img_data.read()).decode()

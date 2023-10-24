@@ -6,7 +6,6 @@ async function printer() {
 		peticion.iteraciones = $("#max_iter").val();
 		peticion.random_state = $("#random_state").is(":checked");
 		peticion.datos = datos[0];
-		peticion.columnas = datos[1];
 		const response = await fetch(document.location.origin + ":8000/kmeans", {
 			method: "POST",
 			headers: {
