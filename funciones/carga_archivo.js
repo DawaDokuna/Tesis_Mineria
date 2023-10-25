@@ -264,7 +264,6 @@ function format_data() {
 	return [filas, columnas];
 }
 function descargar(){
-    // Crear un objeto Blob con el contenido y el tipo MIME apropiado
     const blob = new Blob([archivo_nuevo[1]], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
     const enlace = document.createElement('a');

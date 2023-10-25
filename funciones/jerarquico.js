@@ -28,45 +28,28 @@ async function printer() {
 			.attr("hidden", false)
 			.find("img")
 			.attr("src", "data:image/png;base64," + respuesta.tercer_grafico);
-		// let centro_num = 0;
-		// $("#centros").empty();
-		// respuesta.centros.forEach((element) => {
-		// 	var centro = $("<div>", {
-		// 		class: "col-12 col-md-6 col-lg-4 mx-2 mx-auto text-center card",
-		// 		html: "<h4>Centro " + centro_num++ + "</h4>",
-		// 	});
-		// 	element.forEach((element2) => {
-		// 		centro.append(
-		// 			$("<h5>", {
-		// 				html: element2.toFixed(3),
-		// 				class: "badge badge-pill badge-primary-webx mx-auto p-2",
-		// 			})
-		// 		);
-		// 	});
-		// 	$("#centros").append(centro);
-		// 	$("#centros_card").attr("hidden", false);
-		// });
-		// var contents = archivo[1];
-		// var lines = contents.split("\n");
-		// var newLines = [];
-		// var encontrado = false;
-		// if (archivo[0].split(".").pop() == "arff") {
-		// 	lines.forEach((element) => {
-		// 		if (element.includes("@data")) {
-		// 			newLines.push("@attribute Cluster categoric");
-		// 			newLines.push(element);
-		// 			encontrado = true;
-		// 		} else if (element.includes("@attribute")) newLines.push(element);
-		// 		else return;
-		// 	});
-		// }
-		// respuesta["data"].forEach((element) => {
-		// 	newLines.push(element.join(","));
-		// });
-		// newLines = newLines.join("\n");
-		// archivo_nuevo = [archivo[0], newLines];
-		// $("#btn_centroides").attr("hidden", false);
-		// $("#btn_centroides").data("tipo", 1);
-		// cargar_tabla();
+		$("#centros_card").attr("hidden", false);
+		var contents = archivo[1];
+		var lines = contents.split("\n");
+		var newLines = [];
+		var encontrado = false;
+		if (archivo[0].split(".").pop() == "arff") {
+			lines.forEach((element) => {
+				if (element.includes("@data")) {
+					newLines.push("@attribute Cluster categoric");
+					newLines.push(element);
+					encontrado = true;
+				} else if (element.includes("@attribute")) newLines.push(element);
+				else return;
+			});
+		}
+		respuesta["data"].forEach((element) => {
+			newLines.push(element.join(","));
+		});
+		newLines = newLines.join("\n");
+		archivo_nuevo = [archivo[0], newLines];
+		$("#btn_centroides").attr("hidden", false);
+		$("#btn_centroides").data("tipo", 1);
+		cargar_tabla();
 	}
 }

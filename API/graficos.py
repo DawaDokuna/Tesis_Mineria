@@ -36,9 +36,10 @@ def crear_grafico_jerarquico(data):
     linkage_matrix = linkage(data, method='ward') 
     dendrogram(linkage_matrix)
     plt.title('Dendrogram')
-    plt.xlabel('Samples')
-    plt.ylabel('Distance')
+    plt.xlabel('Objetos')
+    plt.ylabel('Niveles')
     img_data = BytesIO()
     plt.savefig(img_data, format='png')
     img_data.seek(0)
     return base64.b64encode(img_data.read()).decode()
+

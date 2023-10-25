@@ -1,8 +1,7 @@
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 import numpy as np
-from sklearn.cluster import KMeans
-from sklearn.cluster import AgglomerativeClustering
+from sklearn.cluster import KMeans, AgglomerativeClustering, DBSCAN
 import json
 import graficos as gf
 
@@ -76,7 +75,33 @@ async def jerarquico_endpoint(request: Request):
                 "primer_grafico": primer_grafico,
                 "segundo_grafico": segundo_grafico,
                 "tercer_grafico": tercer_grafico,
-                # "centros":kmeans.cluster_centers_.tolist()
+            }
+        )
+    except Exception as e:
+        return str(e)
+
+@app.post("/dbscan")
+async def dbscan_endpoint(request: Request):
+    try:
+        peticion = await request.json()
+        valores_columnas = []
+        for columna in peticion["datos"]:
+            valores_columnas.append(columna)
+        data = np.array(valores_columnas)
+        data = data.astype(float)
+        min_clusters = int(peticion["min_cluster"])
+        eps = float(peticion["eps"])
+        dbscan = DBSCAN(eps=eps, min_samples=min_clusters)
+        dbscan.fit(data)
+        etiquetas_de_cluster = dbscan.labels_
+        data_con_etiquetas = np.column_stack((data, etiquetas_de_cluster))
+        primer_grafico = gf.crear_grafico_kmeans(etiquetas_de_cluster)
+        segundo_grafico = gf.crear_grafico_kmeans2(etiquetas_de_cluster)
+        return json.dumps(
+            {
+                "data": data_con_etiquetas.tolist(),
+                "primer_grafico": primer_grafico,
+                "segundo_grafico": segundo_grafico
             }
         )
     except Exception as e:

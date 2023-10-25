@@ -1,102 +1,199 @@
 <section id="call-to-action" class="call-to-action patron">
-  <div class="container aos-init aos-animate" data-aos="zoom-out">
-    <div class="row justify-content-center">
-      <div class="col-lg-8 text-center">
-        <h3>Algoritmo DBSCAN</h3>
-        <p>
-          DBSCAN (Density-Based Spatial Clustering of Applications with Noise)
-          es un algoritmo de agrupamiento que identifica 
-          <span
-          class="bg-transparent text-danger"
-          data-bs-toggle="archivo"
-          data-bs-custom-class="custom-tooltip"
-          data-bs-title="Agrupa datos similares en conjuntos para identificar patrones y relaciones en el análisis de datos."
-          role="tooltip"
-          >clusters</span> en 
-          <span
-          class="bg-transparent text-danger"
-          data-bs-toggle="archivo"
-          data-bs-custom-class="custom-tooltip"
-          data-bs-title="Patrones que se encuentran donde hay grupos densos de puntos"
-          role="tooltip"
-          >datos basados en la densidad</span> de puntos cercanos. Comienza con un punto y
-          encuentra todos los puntos dentro de una distancia específica,
-          formando un cluster si se supera un umbral mínimo de densidad. Esto
-          permite la detección de clusters de diferentes formas y tamaños,
-          mientras maneja puntos de 
-          <span
-          class="bg-transparent text-danger"
-          data-bs-toggle="archivo"
-          data-bs-custom-class="custom-tooltip"
-          data-bs-title="Datos atípicos o inconsistentes que pueden afectar negativamente la precisión de los análisis y modelos"
-          role="tooltip"
-          >ruido</span>. DBSCAN es eficaz para datos con
-          densidades variables y no requiere que se especifique el número de
-          clusters de antemano.
-        </p>
-      </div>
-    </div>
-  </div>
+	<div class="container aos-init aos-animate" data-aos="zoom-out">
+		<div class="row justify-content-center">
+			<div class="col-lg-8 text-center">
+				<h3>Algoritmo DBSCAN</h3>
+				<p>
+					DBSCAN (Density-Based Spatial Clustering of Applications with Noise)
+					es un algoritmo de agrupamiento que identifica
+					<span
+						class="bg-transparent text-danger"
+						data-bs-toggle="archivo"
+						data-bs-custom-class="custom-tooltip"
+						data-bs-title="Agrupa datos similares en conjuntos para identificar patrones y relaciones en el análisis de datos."
+						role="tooltip"
+						>clusters</span
+					>
+					en
+					<span
+						class="bg-transparent text-danger"
+						data-bs-toggle="archivo"
+						data-bs-custom-class="custom-tooltip"
+						data-bs-title="Patrones que se encuentran donde hay grupos densos de puntos"
+						role="tooltip"
+						>datos basados en la densidad</span
+					>
+					de puntos cercanos. Comienza con un punto y encuentra todos los puntos
+					dentro de una distancia específica, formando un cluster si se supera
+					un umbral mínimo de densidad. Esto permite la detección de clusters de
+					diferentes formas y tamaños, mientras maneja puntos de
+					<span
+						class="bg-transparent text-danger"
+						data-bs-toggle="archivo"
+						data-bs-custom-class="custom-tooltip"
+						data-bs-title="Datos atípicos o inconsistentes que pueden afectar negativamente la precisión de los análisis y modelos"
+						role="tooltip"
+						>ruido</span
+					>. DBSCAN es eficaz para datos con densidades variables y no requiere
+					que se especifique el número de clusters de antemano.
+				</p>
+			</div>
+		</div>
+	</div>
 </section>
 <section>
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-8 text-center">
-        <h3>Comencemos!</h3>
-        <p class="fs-5">
-          Primero debe cargar su
-          <a href="?algoritmo=archivo" class="text-light fw-bold">
-            <span
-              class="badge bg-warning fw-3"
-              data-bs-toggle="archivo"
-              data-bs-placement="top"
-              data-bs-custom-class="custom-tooltip"
-              data-bs-title="Si no esta seguro de que debia subir, no olvide revisar nuestro manual dando chick aquí."
-              role="tooltip"
-            >
-              Archivo <i class="fa-solid fa-circle-info"></i>
-            </span>
-          </a>
-          , puede hacerlo desde el boton o arrastrando el archivo a la zona
-        </p>
-      </div>
-    </div>
-    <div>
-      <form class="form" action="#" method="post">
-        <div
-          id="dropzone"
-          class="dropzone bg-primary bg-opacity-10 border border-primary-subtle border-3 border-pill rounded-bottom-0 border-start-0 border-end-0"
-        >
-          <div class="dz-message" data-dz-message>
-            <span>
-              Arrastra archivos aquí o haz clic para seleccionar archivos ARFF o
-              CSV.
-            </span>
-            <br />
-            <i class="bi bi-upload fs-1 fw-bold"></i>
-          </div>
-        </div>
-      </form>
-    </div>
-    <div class="col-12 mx-auto mt-3 row">
-      <button
-        type="button"
-        id="btn_opciones"
-        class="btn my-3 col-8 mx-auto py-2 text-light fw-bold"
-        data-bs-toggle="collapse"
-        data-bs-target="#opciones"
-        style="background-color: #243248"
-        hidden
-      >
-        Opciones de conjunto
-      </button>
-      <div class="card collapse mb-3" id="opciones">
-        <div class="col-12 mx-auto mt-3 row">
-          <div id="botonera" class="row"></div>
-          <div id="result" class="table-responsive"></div>
-          <div id="mensaje-tabla"></div>
-        </div>
-    </div>
-  </div>
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-lg-8 text-center">
+				<h3>Comencemos!</h3>
+				<p class="fs-5">
+					Primero debe cargar su
+					<a href="?algoritmo=archivo" class="text-light fw-bold">
+						<span
+							class="badge bg-warning fw-3"
+							data-bs-toggle="archivo"
+							data-bs-placement="top"
+							data-bs-custom-class="custom-tooltip"
+							data-bs-title="Si no esta seguro de que debia subir, no olvide revisar nuestro manual dando chick aquí."
+							role="tooltip">
+							Archivo <i class="fa-solid fa-circle-info"></i>
+						</span>
+					</a>
+					, puede hacerlo desde el boton o arrastrando el archivo a la zona
+				</p>
+			</div>
+		</div>
+		<div>
+			<form class="form" action="#" method="post">
+				<div
+					id="dropzone"
+					class="dropzone bg-primary bg-opacity-10 border border-primary-subtle border-3 border-pill rounded-bottom-0 border-start-0 border-end-0">
+					<div class="dz-message" data-dz-message>
+						<span>
+							Arrastra archivos aquí o haz clic para seleccionar archivos ARFF o
+							CSV.
+						</span>
+						<br />
+						<i class="bi bi-upload fs-1 fw-bold"></i>
+					</div>
+				</div>
+			</form>
+		</div>
+
+		<div class="col-12 mx-auto mt-3 row">
+			<div id="botonera" class="row"></div>
+			<div id="result" class="table-responsive"></div>
+			<div id="mensaje-tabla"></div>
+			<div class="col-12 my-2 row" id="btn_centroides" hidden>
+				<button
+					class="btn btn-outline-primary col-lg-8 mx-auto"
+					data-tipo="1"
+					onclick="cargar_tabla()">
+					Datos sin Clasificar
+				</button>
+			</div>
+			<div class="collapse fade" id="parametros">
+				<div class="card">
+					<div class="card-body row">
+						<form onsubmit="return false" id="parametros_form" class="row">
+							<h5 class="card-title">Parámetros</h5>
+							<div class="input-group mb-3">
+								<label for="min_cluster" class="input-group-text"
+									>Mínimo de grupos
+								</label>
+								<div class="input-group-text">
+									<span
+										class="bg-transparent text-danger"
+										data-bs-toggle="archivo"
+										data-bs-custom-class="custom-tooltip"
+										data-bs-title="Mínimo de objetos para formar un cluster."
+										role="tooltip"
+										><i class="bi bi-info-circle"></i
+									></span>
+								</div>
+								<input
+									type="number"
+									class="form-control"
+									step="1"
+									id="min_cluster"
+									placeholder="Número de centroides"
+									required />
+							</div>
+							<div class="input-group mb-3">
+								<label for="eps" class="input-group-text">EPS</label>
+								<div class="input-group-text">
+									<span
+										class="bg-transparent text-danger"
+										data-bs-toggle="archivo"
+										data-bs-custom-class="custom-tooltip"
+										data-bs-title="Lo cerca que deben estar los puntos entre sí para ser considerados parte de un clúster."
+										role="tooltip"
+										><i class="bi bi-info-circle"></i
+									></span>
+								</div>
+								<input
+									type="number"
+									class="form-control"
+									step="0.01"
+									id="eps"
+									placeholder="Número de centroides"
+									required />
+							</div>
+							<button
+								href="#"
+								type="submit"
+								class="btn btn-primary col-sm-11 col-lg-8 mx-auto py-2"
+								onclick="printer()">
+								Iniciar
+							</button>
+						</form>
+					</div>
+				</div>
+				<div class="row my-2 px-0 mx-0 g-2">
+					<div
+						class="card shadow col-sm-12 col-lg-5 mx-auto"
+						id="grafico1"
+						hidden>
+						<img
+							class="card-img-top"
+							alt="Grafico que muestra objetos/centroides"
+							style="cursor: pointer"
+							name="grafico" />
+						<div class="card-body">
+							<h4 class="card-title">Grafico que muestra objetos/centroides</h4>
+						</div>
+					</div>
+					<div
+						class="card shadow col-sm-12 col-lg-5 mx-auto"
+						id="grafico2"
+						hidden>
+						<img
+							class="card-img-top"
+							alt="Grafico que muestra objetos/centroides"
+							style="cursor: pointer"
+							name="grafico" />
+						<div class="card-body">
+							<h4 class="card-title">Grafico que muestra centroides/objetos</h4>
+						</div>
+					</div>
+					<div class="card shadow col-sm-12 mx-auto" id="centros_card" hidden>
+						<div class="card-body">
+							<h4 class="card-title">Atributos de los centroides</h4>
+							<div class="g-auto row" id="centros"></div>
+							<div class="col-12 mx-auto mt-3 row" id="btn_decargar">
+								<button
+									type="button"
+									onclick="descargar_dbscan()"
+									class="btn btn-lg btn-outline-primary col-12 col-lg-8 mx-auto">
+									Descargar archivo
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
 <script src="funciones/carga_archivo.js"></script>
+<script src="funciones/dbscan.js"></script>
