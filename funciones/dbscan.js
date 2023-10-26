@@ -22,24 +22,26 @@ async function printer() {
 			.attr("hidden", false)
 			.find("img")
 			.attr("src", "data:image/png;base64," + respuesta.segundo_grafico);
-		// let centro_num = 0;
-		// $("#centros").empty();
-		// respuesta.centros.forEach((element) => {
-		// 	var centro = $("<div>", {
-		// 		class: "col-12 col-md-6 col-lg-4 mx-2 mx-auto text-center card",
-		// 		html: "<h4>Centro " + centro_num++ + "</h4>",
-		// 	});
-		// 	element.forEach((element2) => {
-		// 		centro.append(
-		// 			$("<h5>", {
-		// 				html: element2.toFixed(3),
-		// 				class: "badge badge-pill badge-primary-webx mx-auto p-2",
-		// 			})
-		// 		);
-		// 	});
-		// 	$("#centros").append(centro);
-		// 	$("#centros_card").attr("hidden", false);
-		// });
+
+		$("#centros").empty();
+		Object.keys(respuesta.grupos).forEach((element) => {
+			var centro = $("<div>", {
+				class: "col-12 col-md-6 col-lg-4 m-2 row mx-auto text-center card",
+				html:
+					"<h4>" + (element == -1 ? "Ruido" : "Centro " + element) + "</h4>",
+			});
+			centro.append($("<div>", { class: "d-flex flex-wrap g-2" }));
+			respuesta.grupos[element].forEach((element2) => {
+				centro.children("div").append(
+					$("<div>", {
+						html: element2.join(", "),
+						class: "badge col badge-pill badge-primary-webx m-2 p-2",
+					})
+				);
+			});
+			$("#centros").append(centro);
+			$("#centros_card").attr("hidden", false);
+		});
 		$("#centros_card").attr("hidden", false);
 		var contents = archivo[1];
 		var lines = contents.split("\n");
@@ -75,16 +77,17 @@ function descargar_dbscan() {
 		if (element.includes("@data") || archivo_nuevo[0] != "arff") {
 			listo = true;
 		}
-		if (listo && elemento[elemento.length -1] == "-1") {
+		if (listo && elemento[elemento.length - 1] == "-1") {
 			nuevo_contenido.pop();
 		}
 	});
 	nuevo_contenido = nuevo_contenido.join("\n");
-    const blob = new Blob([nuevo_contenido], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
-    const enlace = document.createElement('a');
-    enlace.href = url;
-    enlace.download = "kmeans_"+$("#num_cluster").val()+"_Clusters" + '.' + archivo_nuevo[0];
-    enlace.click();
-    URL.revokeObjectURL(url);
+	const blob = new Blob([nuevo_contenido], { type: "text/plain" });
+	const url = URL.createObjectURL(blob);
+	const enlace = document.createElement("a");
+	enlace.href = url;
+	enlace.download =
+		"kmeans_" + $("#num_cluster").val() + "_Clusters" + "." + archivo_nuevo[0];
+	enlace.click();
+	URL.revokeObjectURL(url);
 }

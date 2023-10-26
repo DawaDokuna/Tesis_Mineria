@@ -59,74 +59,130 @@
         </p>
       </div>
     </div>
-    <div>
-      <form class="form" action="#" method="post">
-        <div
-          id="dropzone"
-          class="dropzone bg-primary bg-opacity-10 border border-primary-subtle border-3 border-pill rounded-bottom-0 border-start-0 border-end-0"
-        >
-          <div class="dz-message" data-dz-message>
-            <span>
-              Arrastra archivos aquí o haz clic para seleccionar archivos ARFF o
-              CSV.
-            </span>
-            <br />
-            <i class="bi bi-upload fs-1 fw-bold"></i>
-          </div>
-        </div>
-      </form>
-    </div>
-    <div class="col-12 mx-auto mt-3 row">
-      <button
-        type="button"
-        id="btn_opciones"
-        class="btn my-3 col-8 mx-auto py-2 text-light fw-bold"
-        data-bs-toggle="collapse"
-        data-bs-target="#opciones"
-        style="background-color: #243248"
-        hidden
-      >
-        Opciones de conjunto
-      </button>
-      <div class="card collapse mb-3" id="opciones">
-        <div class="card-body">
-          <h5 class="card-title">Opciones de archivo</h5>
-          <div class="col-sm-12 col-md-8 mx-auto">
-            <div class="input-group mb-3">
-              <label class="input-group-text text-wrap" for="select_delete_col"
-                >Eliminar columna</label
-              >
-              <select class="form-select" id="select_delete_col">
-                <option selected>Seleccione...</option>
-              </select>
-              <button class="btn btn-outline-secondary" type="button">
-                Eliminar
-              </button>
-            </div>
-          </div>
-          <div class="col-sm-12 col-md-8 mx-auto">
-            <div class="input-group mb-3">
-              <button class="btn btn-outline-secondary" type="button">
-                Eliminar Comillas (",,,")
-              </button>
-              <label class="input-group-text text-wrap"
-                >Eliminar Caracter especial</label
-              >
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Caracter especial"
-              />
-              <button class="btn btn-outline-secondary" type="button">
-                Eliminar Caracter
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div id="result" class="table-responsive"></div>
-      <div id="mensaje-tabla"></div>
-    </div>
+		<div>
+			<form class="form" action="#" method="post">
+				<div
+					id="dropzone"
+					class="dropzone bg-primary bg-opacity-10 border border-primary-subtle border-3 border-pill rounded-bottom-0 border-start-0 border-end-0">
+					<div class="dz-message" data-dz-message>
+						<span>
+							Arrastra archivos aquí o haz clic para seleccionar archivos ARFF o
+							CSV.
+						</span>
+						<br />
+						<i class="bi bi-upload fs-1 fw-bold"></i>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="col-12 mx-auto mt-3 row">
+			<div id="botonera" class="row"></div>
+			<div id="result" class="table-responsive"></div>
+			<div id="mensaje-tabla"></div>
+			<div class="col-12 my-2 row" id="btn_centroides" hidden>
+				<button
+					class="btn btn-outline-primary col-lg-8 mx-auto"
+					data-tipo="1"
+					onclick="cargar_tabla()">
+					Datos sin Clasificar
+				</button>
+			</div>
+			<div class="collapse fade" id="parametros">
+				<div class="card">
+					<div class="card-body row">
+						<form onsubmit="return false" id="parametros_form" class="row">
+							<h5 class="card-title">Parámetros</h5>
+							<div class="input-group mb-3">
+								<label for="num_cluster" class="input-group-text"
+									>Número de grupos
+								</label>
+								<div class="input-group-text">
+									<span
+										class="bg-transparent text-danger"
+										data-bs-toggle="archivo"
+										data-bs-custom-class="custom-tooltip"
+										data-bs-title="Número de grupos que se esperan formar."
+										role="tooltip"
+										><i class="bi bi-info-circle"></i
+									></span>
+								</div>
+								<input
+									type="number"
+									min="1"
+									max="20"
+									step="1"
+									class="form-control"
+									id="num_cluster"
+									placeholder="Número de grupos"
+									required />
+							</div>
+							<button
+								href="#"
+								type="submit"
+								class="btn btn-primary col-sm-11 col-lg-8 mx-auto py-2"
+								onclick="printer()">
+								Iniciar
+							</button>
+						</form>
+					</div>
+				</div>
+				<div class="row my-2 px-0 mx-0 g-2">
+					<div
+						class="card shadow col-sm-12 col-lg-5 mx-auto"
+						id="grafico1"
+						hidden>
+						<img
+							class="card-img-top"
+							alt="Grafico que muestra objetos/centroides"
+							style="cursor: pointer"
+							name="grafico" />
+						<div class="card-body">
+							<h4 class="card-title">Grafico que muestra objetos/centroides</h4>
+						</div>
+					</div>
+					<div
+						class="card shadow col-sm-12 col-lg-5 mx-auto"
+						id="grafico2"
+						hidden>
+						<img
+							class="card-img-top"
+							alt="Grafico que muestra objetos/centroides"
+							style="cursor: pointer"
+							name="grafico" />
+						<div class="card-body">
+							<h4 class="card-title">Grafico que muestra centroides/objetos</h4>
+						</div>
+					</div>
+					<div
+						class="card shadow col-sm-12 col-lg-5 mx-auto"
+						id="grafico3"
+						hidden>
+						<img
+							class="card-img-top"
+							alt="Grafico que muestra el dendrograma"
+							style="cursor: pointer"
+							name="grafico" />
+						<div class="card-body">
+							<h4 class="card-title">Dendrograma</h4>
+						</div>
+					</div>
+					<div class="card shadow col-sm-12 mx-auto" id="centros_card" hidden>
+						<div class="card-body">
+							<h4 class="card-title">Atributos de los centroides</h4>
+							<div class="g-auto row" id="centros"></div>
+							<div class="col-12 mx-auto mt-3 row" id="btn_decargar">
+								<button
+									type="button"
+									onclick="descargar()"
+									class="btn btn-lg btn-outline-primary col-12 col-lg-8 mx-auto">
+									Descargar archivo
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
   </div>
 </section>
 <script src="funciones/carga_archivo.js"></script>

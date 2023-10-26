@@ -97,11 +97,18 @@ async def dbscan_endpoint(request: Request):
         data_con_etiquetas = np.column_stack((data, etiquetas_de_cluster))
         primer_grafico = gf.crear_grafico_kmeans(etiquetas_de_cluster)
         segundo_grafico = gf.crear_grafico_kmeans2(etiquetas_de_cluster)
+        grupos = {}
+        for etiqueta, objeto in zip(etiquetas_de_cluster, data):
+            etiqueta_str = str(etiqueta)
+            if etiqueta_str not in grupos:
+                grupos[etiqueta_str] = []
+            grupos[etiqueta_str].append(objeto.tolist())
         return json.dumps(
             {
                 "data": data_con_etiquetas.tolist(),
                 "primer_grafico": primer_grafico,
-                "segundo_grafico": segundo_grafico
+                "segundo_grafico": segundo_grafico,
+                "grupos": grupos,
             }
         )
     except Exception as e:
