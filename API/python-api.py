@@ -2,6 +2,7 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 import numpy as np
 from sklearn.cluster import KMeans, AgglomerativeClustering, DBSCAN
+from sklearn.metrics import davies_bouldin_score, calinski_harabasz_score, silhouette_score
 import json
 import graficos as gf
 
@@ -109,6 +110,63 @@ async def dbscan_endpoint(request: Request):
                 "primer_grafico": primer_grafico,
                 "segundo_grafico": segundo_grafico,
                 "grupos": grupos,
+            }
+        )
+    except Exception as e:
+        return str(e)
+
+@app.post("/davies")
+async def davies_endpoint(request: Request):
+    try:
+        peticion = await request.json()
+        valores_columnas = []
+        for columna in peticion["datos"]:
+            valores_columnas.append(columna)
+        data = np.array(valores_columnas)
+        data = data.astype(float)
+        clusters = data[:, -1]
+        score = davies_bouldin_score(data, clusters)
+        return json.dumps(
+            {
+                "score": str(score)
+            }
+        )
+    except Exception as e:
+        return str(e)
+    
+@app.post("/calinski")
+async def calinski_endpoint(request: Request):
+    try:
+        peticion = await request.json()
+        valores_columnas = []
+        for columna in peticion["datos"]:
+            valores_columnas.append(columna)
+        data = np.array(valores_columnas)
+        data = data.astype(float)
+        clusters = data[:, -1]
+        score = calinski_harabasz_score(data, clusters)
+        return json.dumps(
+            {
+                "score": str(score)
+            }
+        )
+    except Exception as e:
+        return str(e)
+    
+@app.post("/silhouette")
+async def silhouette_endpoint(request: Request):
+    try:
+        peticion = await request.json()
+        valores_columnas = []
+        for columna in peticion["datos"]:
+            valores_columnas.append(columna)
+        data = np.array(valores_columnas)
+        data = data.astype(float)
+        clusters = data[:, -1]
+        score = silhouette_score(data, clusters)
+        return json.dumps(
+            {
+                "score": str(score)
             }
         )
     except Exception as e:

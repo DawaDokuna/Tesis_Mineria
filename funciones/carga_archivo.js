@@ -263,7 +263,7 @@ function format_data() {
 	}
 	return [filas, columnas];
 }
-function descargar(){
+function descargar_kmeans(){
     const blob = new Blob([archivo_nuevo[1]], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
     const enlace = document.createElement('a');
@@ -271,6 +271,44 @@ function descargar(){
     enlace.download = "kmeans_"+$("#num_cluster").val()+"_Clusters" + '.' + archivo_nuevo[0];
     enlace.click();
     URL.revokeObjectURL(url);
+}
+function descargar_jerarquico(){
+    const blob = new Blob([archivo_nuevo[1]], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const enlace = document.createElement('a');
+    enlace.href = url;
+    enlace.download = "jerarquico_"+$("#num_cluster").val()+"_Clusters" + '.' + archivo_nuevo[0];
+    enlace.click();
+    URL.revokeObjectURL(url);
+}
+function descargar_dbscan() {
+	contenido = archivo_nuevo[1].split("\n");
+	var listo = false;
+	var nuevo_contenido = [];
+	contenido.forEach((element) => {
+		nuevo_contenido.push(element);
+		var elemento = element.split(",");
+		if (element.includes("@data") || archivo_nuevo[0] != "arff") {
+			listo = true;
+		}
+		if (listo && elemento[elemento.length - 1] == "-1") {
+			nuevo_contenido.pop();
+		}
+	});
+	nuevo_contenido = nuevo_contenido.join("\n");
+	const blob = new Blob([nuevo_contenido], { type: "text/plain" });
+	const url = URL.createObjectURL(blob);
+	const enlace = document.createElement("a");
+	enlace.href = url;
+	enlace.download =
+		"dbscan_" +
+		$("#min_cluster").val() +
+		"_min_" +
+		$("#eps").val() +
+		"_eps." +
+		archivo_nuevo[0];
+	enlace.click();
+	URL.revokeObjectURL(url);
 }
 $(document).on("click", '[name="grafico"]', function () {
 	var imageSrc = $(this).attr("src");

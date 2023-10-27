@@ -1,64 +1,66 @@
 <section id="call-to-action" class="call-to-action patron">
-  <div class="container aos-init aos-animate" data-aos="zoom-out">
-    <div class="row justify-content-center">
-      <div class="col-lg-8 text-center">
-        <h3>Davies Bouldin</h3>
-        <p>
-          Evalúa la calidad de los grupos formados por un 
-          <span
-          class="bg-transparent text-danger"
-          data-bs-toggle="archivo"
-          data-bs-custom-class="custom-tooltip"
-          data-bs-title="Técnica que organiza datos en grupos similares según similitudes o características compartidas."
-          role="tooltip"
-          >algoritmo de agrupamiento</span>. Se basa en la comparación de la distancia promedio entre
-          los puntos de datos dentro de un grupo con la distancia promedio más
-          cercana entre grupos. Un valor más bajo del índice indica una mejor
-          separación entre los grupos y, por lo tanto, una agrupación más
-          efectiva. Es una medida útil para evaluar la 
-          <span
-          class="bg-transparent text-danger"
-          data-bs-toggle="archivo"
-          data-bs-custom-class="custom-tooltip"
-          data-bs-title="Proximidad entre puntos de datos dentro del mismo grupo en un algoritmo de agrupamiento."
-          role="tooltip"
-          >cohesión</span> y la separación
-          en los resultados del 
-          <span
-          class="bg-transparent text-danger"
-          data-bs-toggle="archivo"
-          data-bs-custom-class="custom-tooltip"
-          data-bs-title="Proceso de agrupar datos similares para revelar patrones y estructuras subyacentes."
-          role="tooltip"
-          >clustering</span>.
-        </p>
-      </div>
-    </div>
-  </div>
+	<div class="container aos-init aos-animate" data-aos="zoom-out">
+		<div class="row justify-content-center">
+			<div class="col-lg-8 text-center">
+				<h3>Davies Bouldin</h3>
+				<p>
+					Evalúa la calidad de los grupos formados por un
+					<span
+						class="bg-transparent text-danger"
+						data-bs-toggle="archivo"
+						data-bs-custom-class="custom-tooltip"
+						data-bs-title="Técnica que organiza datos en grupos similares según similitudes o características compartidas."
+						role="tooltip"
+						>algoritmo de agrupamiento</span
+					>. Se basa en la comparación de la distancia promedio entre los puntos
+					de datos dentro de un grupo con la distancia promedio más cercana
+					entre grupos. Un valor más bajo del índice indica una mejor separación
+					entre los grupos y, por lo tanto, una agrupación más efectiva. Es una
+					medida útil para evaluar la
+					<span
+						class="bg-transparent text-danger"
+						data-bs-toggle="archivo"
+						data-bs-custom-class="custom-tooltip"
+						data-bs-title="Proximidad entre puntos de datos dentro del mismo grupo en un algoritmo de agrupamiento."
+						role="tooltip"
+						>cohesión</span
+					>
+					y la separación en los resultados del
+					<span
+						class="bg-transparent text-danger"
+						data-bs-toggle="archivo"
+						data-bs-custom-class="custom-tooltip"
+						data-bs-title="Proceso de agrupar datos similares para revelar patrones y estructuras subyacentes."
+						role="tooltip"
+						>clustering</span
+					>.
+				</p>
+			</div>
+		</div>
+	</div>
 </section>
 <section>
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-8 text-center">
-        <h3>Comencemos!</h3>
-        <p class="fs-5">
-          Primero debe cargar su
-          <a href="?algoritmo=archivo" class="text-light fw-bold">
-            <span
-              class="badge bg-warning fw-3"
-              data-bs-toggle="archivo"
-              data-bs-placement="top"
-              data-bs-custom-class="custom-tooltip"
-              data-bs-title="Si no esta seguro de que debia subir, no olvide revisar nuestro manual dando chick aquí."
-              role="tooltip"
-            >
-              Archivo <i class="fa-solid fa-circle-info"></i>
-            </span>
-          </a>
-          , puede hacerlo desde el boton o arrastrando el archivo a la zona
-        </p>
-      </div>
-    </div>
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-lg-8 text-center">
+				<h3>Comencemos!</h3>
+				<p class="fs-5">
+					Primero debe cargar su
+					<a href="?algoritmo=archivo" class="text-light fw-bold">
+						<span
+							class="badge bg-warning fw-3"
+							data-bs-toggle="archivo"
+							data-bs-placement="top"
+							data-bs-custom-class="custom-tooltip"
+							data-bs-title="Si no esta seguro de que debia subir, no olvide revisar nuestro manual dando chick aquí."
+							role="tooltip">
+							Archivo <i class="fa-solid fa-circle-info"></i>
+						</span>
+					</a>
+					, puede hacerlo desde el boton o arrastrando el archivo a la zona
+				</p>
+			</div>
+		</div>
 		<div>
 			<form class="form" action="#" method="post">
 				<div
@@ -91,31 +93,6 @@
 				<div class="card">
 					<div class="card-body row">
 						<form onsubmit="return false" id="parametros_form" class="row">
-							<h5 class="card-title">Parámetros</h5>
-							<div class="input-group mb-3">
-								<label for="num_cluster" class="input-group-text"
-									>Número de grupos
-								</label>
-								<div class="input-group-text">
-									<span
-										class="bg-transparent text-danger"
-										data-bs-toggle="archivo"
-										data-bs-custom-class="custom-tooltip"
-										data-bs-title="Número de grupos que se esperan formar."
-										role="tooltip"
-										><i class="bi bi-info-circle"></i
-									></span>
-								</div>
-								<input
-									type="number"
-									min="1"
-									max="20"
-									step="1"
-									class="form-control"
-									id="num_cluster"
-									placeholder="Número de grupos"
-									required />
-							</div>
 							<button
 								href="#"
 								type="submit"
@@ -127,62 +104,18 @@
 					</div>
 				</div>
 				<div class="row my-2 px-0 mx-0 g-2">
-					<div
-						class="card shadow col-sm-12 col-lg-5 mx-auto"
-						id="grafico1"
-						hidden>
-						<img
-							class="card-img-top"
-							alt="Grafico que muestra objetos/centroides"
-							style="cursor: pointer"
-							name="grafico" />
-						<div class="card-body">
-							<h4 class="card-title">Grafico que muestra objetos/centroides</h4>
-						</div>
-					</div>
-					<div
-						class="card shadow col-sm-12 col-lg-5 mx-auto"
-						id="grafico2"
-						hidden>
-						<img
-							class="card-img-top"
-							alt="Grafico que muestra objetos/centroides"
-							style="cursor: pointer"
-							name="grafico" />
-						<div class="card-body">
-							<h4 class="card-title">Grafico que muestra centroides/objetos</h4>
-						</div>
-					</div>
-					<div
-						class="card shadow col-sm-12 col-lg-5 mx-auto"
-						id="grafico3"
-						hidden>
-						<img
-							class="card-img-top"
-							alt="Grafico que muestra el dendrograma"
-							style="cursor: pointer"
-							name="grafico" />
-						<div class="card-body">
-							<h4 class="card-title">Dendrograma</h4>
-						</div>
-					</div>
 					<div class="card shadow col-sm-12 mx-auto" id="centros_card" hidden>
 						<div class="card-body">
-							<h4 class="card-title">Atributos de los centroides</h4>
-							<div class="g-auto row" id="centros"></div>
-							<div class="col-12 mx-auto mt-3 row" id="btn_decargar">
-								<button
-									type="button"
-									onclick="descargar()"
-									class="btn btn-lg btn-outline-primary col-12 col-lg-8 mx-auto">
-									Descargar archivo
-								</button>
-							</div>
+							<h4 class="card-title">Valor de la herramienta de evaluación</h4>
+							<h2
+								id="metric"
+								class="col-12 col-lg-8 mx-auto badge bg-primary-webx my-2">text</h2>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-  </div>
+	</div>
 </section>
 <script src="funciones/carga_archivo.js"></script>
+<script src="funciones/davies.js"></script>
