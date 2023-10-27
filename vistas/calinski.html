@@ -69,57 +69,47 @@
         </div>
       </form>
     </div>
-    <div class="col-12 mx-auto mt-3 row">
-      <button
-        type="button"
-        id="btn_opciones"
-        class="btn my-3 col-8 mx-auto py-2 text-light fw-bold"
-        data-bs-toggle="collapse"
-        data-bs-target="#opciones"
-        style="background-color: #243248"
-        hidden
-      >
-        Opciones de conjunto
-      </button>
-      <div class="card collapse mb-3" id="opciones">
-        <div class="card-body">
-          <h5 class="card-title">Opciones de archivo</h5>
-          <div class="col-sm-12 col-md-8 mx-auto">
-            <div class="input-group mb-3">
-              <label class="input-group-text text-wrap" for="select_delete_col"
-                >Eliminar columna</label
-              >
-              <select class="form-select" id="select_delete_col">
-                <option selected>Seleccione...</option>
-              </select>
-              <button class="btn btn-outline-secondary" type="button">
-                Eliminar
-              </button>
-            </div>
-          </div>
-          <div class="col-sm-12 col-md-8 mx-auto">
-            <div class="input-group mb-3">
-              <button class="btn btn-outline-secondary" type="button">
-                Eliminar Comillas (",,,")
-              </button>
-              <label class="input-group-text text-wrap"
-                >Eliminar Caracter especial</label
-              >
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Caracter especial"
-              />
-              <button class="btn btn-outline-secondary" type="button">
-                Eliminar Caracter
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div id="result" class="table-responsive"></div>
-      <div id="mensaje-tabla"></div>
-    </div>
+		<div class="col-12 mx-auto mt-3 row">
+			<div id="botonera" class="row"></div>
+			<div id="result" class="table-responsive"></div>
+			<div id="mensaje-tabla"></div>
+			<div class="col-12 my-2 row" id="btn_centroides" hidden>
+				<button
+					class="btn btn-outline-primary col-lg-8 mx-auto"
+					data-tipo="1"
+					onclick="cargar_tabla()">
+					Datos sin Clasificar
+				</button>
+			</div>
+			<div class="collapse fade" id="parametros">
+				<div class="card">
+					<div class="card-body row">
+						<form onsubmit="return false" id="parametros_form" class="row">
+							<button
+								href="#"
+								type="submit"
+								class="btn btn-primary col-sm-11 col-lg-8 mx-auto py-2"
+								onclick="printer()">
+								Iniciar
+							</button>
+						</form>
+					</div>
+				</div>
+				<div class="row my-2 px-0 mx-0 g-2">
+					<div class="card shadow col-sm-12 mx-auto" id="centros_card" hidden>
+						<div class="card-body">
+							<h4 class="card-title">Valor de la herramienta de evaluación</h4>
+							<div class="row">
+								<span
+									id="metric"
+									class="col-12 col-lg-8 fs-2 mx-auto badge border border-primary text-dark bg-primary-webx my-2"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
   </div>
 </section>
 <script src="funciones/carga_archivo.js"></script>
+<script src="funciones/calinski.js"></script>
