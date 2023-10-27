@@ -1,34 +1,41 @@
-.btn-primary{
+.btn-primary {
     background-color: #243248;
     border-color: #243248;
     color: #fff;
 }
-.btn-primary:hover{
+.btn-primary:hover {
     background-color: #374b6d;
     border-color: #374b6d;
     color: #fff;
 }
-.btn-primary:active{
+.btn-primary:active {
     background-color: #2e3f5a;
     border-color: #2e3f5a;
     color: #fff;
 }
-.btn-outline-primary{
+.btn-outline-primary {
     background-color: transparent;
     border-color: #243248;
     color: #243248;
 }
-.btn-outline-primary:hover{
+.btn-outline-primary:hover {
     background-color: #243248;
     border-color: #243248;
     color: #fff;
 }
-.btn-outline-primary:active{
+.btn-outline-primary:active {
     background-color: #2e3f5a;
     border-color: #2e3f5a;
     color: #fff;
 }
-.badge-primary-webx{
-    background-color: #243248;
+.badge-primary-webx {
+    background-color: #243248 !important;
     color: #fff;
+}
+.badge .bg-primary{
+    background-color: #243248 !important;
+    color: #fff;
+}
+.border-primary{
+    border-color: #243248 !important;
 }
