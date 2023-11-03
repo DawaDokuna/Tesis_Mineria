@@ -387,7 +387,7 @@ $(document).ready(function () {
 	);
 	Dropzone.autoDiscover = false;
 	data_dropzone = new Dropzone("#dropzone", {
-		url: "archivos/dropzone", 
+		url: "./archivos/dropzone", 
 		acceptedFiles: ".arff, .csv",
 		dictDefaultMessage:
 			"Arrastra un archivo aquí o haz clic para seleccionar un archivo ARFF o CSV.",
