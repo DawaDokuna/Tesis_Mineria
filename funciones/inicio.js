@@ -10,5 +10,5 @@ var liks = {
     "calinski": "vistas/calinski.html",
     "silh": "vistas/silh.html"
 }
-var link = liks[kMeansValue]??"dashboard/inicio.html";
+var link = liks[kMeansValue]??"./dashboard/inicio.html";
 $("#main").load(link);
