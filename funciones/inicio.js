@@ -10,7 +10,7 @@ var liks = {
     "calinski": "vistas/calinski.html",
     "silh": "vistas/silh.html",
     "mineria": "vistas/mineria.html",
-    "archivos": "vistas/archivos.html"
+    "archivo": "vistas/archivos.html"
 }
 var link = liks[kMeansValue]??"./dashboard/inicio.html";
 $("#main").load(link);
