@@ -8,7 +8,9 @@ var liks = {
     "dbscan": "vistas/dbscan.html",
     "davies": "vistas/davies.html",
     "calinski": "vistas/calinski.html",
-    "silh": "vistas/silh.html"
+    "silh": "vistas/silh.html",
+    "mineria": "vistas/mineria.html",
+    "archivos": "vistas/archivos.html"
 }
 var link = liks[kMeansValue]??"./dashboard/inicio.html";
 $("#main").load(link);
