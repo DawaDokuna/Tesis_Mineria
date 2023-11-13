@@ -32,10 +32,24 @@
     background-color: #243248 !important;
     color: #fff;
 }
-.badge .bg-primary{
+.badge .bg-primary {
     background-color: #243248 !important;
     color: #fff;
 }
-.border-primary{
+.border-primary {
     border-color: #243248 !important;
+}
+.dark-container {
+    background-color: rgb(27, 26, 31); /* Color de fondo oscuro */
+    color: #ffffff; /* Color del texto en modo oscuro */
+    padding: 15px;
+    margin-top: 15px;
+}
+
+.attribute {
+    color: #64b8e9; /* Color verde para atributos */
+}
+
+.data {
+    color: #bd87d6; /* Color naranja para datos */
 }

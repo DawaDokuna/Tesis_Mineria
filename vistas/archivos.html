@@ -24,14 +24,17 @@
                         />
                     </div>
                     <h3>
-                        <a href="service-details.html" class="stretched-link"
+                        <a
+                            data-bs-toggle="collapse"
+                            data-bs-target="#arff"
+                            class="stretched-link"
                             >ARFF</a
                         >
                     </h3>
                     <p>
-                        Cumque eos in qui numquam. Aut aspernatur perferendis
-                        sed atque quia voluptas quisquam repellendus temporibus
-                        itaqueofficiis odit
+                        La información se organiza en dos secciones: <br>
+                        En la Sección de Encabezado (Header) se proporciona información sobre los atributos y la relación entre ellos.
+                        En la Sección de Datos (Data) se proporcionan los datos en sí separados por comas.
                     </p>
                 </div>
             </div>
@@ -49,17 +52,80 @@
                         />
                     </div>
                     <h3>
-                        <a href="service-details.html" class="stretched-link"
+                        <a
+                            data-bs-toggle="collapse"
+                            data-bs-target="#csv"
+                            class="stretched-link"
                             >CSV</a
                         >
                     </h3>
                     <p>
-                        Cumque eos in qui numquam. Aut aspernatur perferendis
-                        sed atque quia voluptas quisquam repellendus temporibus
-                        itaqueofficiis odit
+                        Es un formato de archivo que se utiliza para almacenar
+                        datos tabulares, como una hoja de cálculo o una base de
+                        datos, donde cada línea del archivo representa una fila
+                        de datos y los valores de cada columna están separados
+                        por comas.
                     </p>
                 </div>
             </div>
         </div>
+        <div id="archivos">
+            <div
+                class="card col-11 col-lg-8 mx-auto my-4 bg-light p-2 collapse"
+                id="arff"
+                data-parent="#archivos"
+            >
+                <h3>Ejemplo de archivo ARFF</h3>
+                <div class="dark-container mt-0">
+                    <pre class="text-light">
+    <span class="attribute">@relation</span> Ejemplo
+    <span class="attribute">@attribute</span> Dato1 <span class="data">real</span>
+    <span class="attribute">@attribute</span> Dato2 <span class="data">real</span>
+    <span class="attribute">@attribute</span> Dato3 <span class="data">real</span>
+    <span class="attribute">@data</span>
+    <span class="data">1,1,0</span>
+    <span class="data">2,1,1</span>
+    <span class="data">1,2,0</span>
+    <span class="data">2,2,1</span>
+    <span class="data">4,1,3</span>
+    <span class="data">4,2,1</span>
+    <span class="data">4,3,3</span>
+    <span class="data">4,4,5</span>
+    <span class="data">2,4,1</span>
+    <span class="data">3,4,4</span>
+    <span class="data">2,5,2</span>
+                    </pre>
+                </div>
+            </div>
+            <div
+                class="card col-11 col-lg-8 mx-auto my-4 bg-light p-2 collapse"
+                id="csv"
+                data-parent="#archivos"
+            >
+                <h3>Ejemplo de archivo CSV</h3>
+                <div class="dark-container mt-0">
+                    <pre class="text-light">
+    <span class="data">1,1,0</span>
+    <span class="data">2,1,1</span>
+    <span class="data">1,2,0</span>
+    <span class="data">2,2,1</span>
+    <span class="data">4,1,3</span>
+    <span class="data">4,2,1</span>
+    <span class="data">4,3,3</span>
+    <span class="data">4,4,5</span>
+    <span class="data">2,4,1</span>
+    <span class="data">3,4,4</span>
+    <span class="data">2,5,2</span>
+                    </pre>
+                </div>
+            </div>
+        </div>
     </div>
+    <div id="archivos">
+        <div
+            class="card col-11 col-lg-8 mx-auto my-4 bg-primary text-light rounded-pill text-center p-2 "  data-aos="fade-up"
+        >
+        <span>No olvides que este proyecto trabaja únicamente con datos numéricos.</span>
+        </div>
 </section>
+<script src="funciones/archivos.js"></script>

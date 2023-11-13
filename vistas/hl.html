@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Visualización ARFF</title>
+        <!-- Agrega el enlace a Bootstrap CSS para el modo oscuro -->
+        <link
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
+        <style>
+            .dark-container {
+                background-color: rgb(6, 3, 20); /* Color de fondo oscuro */
+                color: #ffffff; /* Color del texto en modo oscuro */
+                padding: 15px;
+                margin-top: 15px;
+            }
+
+            .attribute {
+                color: #64b8e9; /* Color verde para atributos */
+            }
+
+            .data {
+                color: #bd87d6; /* Color naranja para datos */
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <pre>
+@attribute Dato1 real
+@attribute Dato2 real
+@attribute Dato3 real
+@data
+1,1,0
+2,1,1
+1,2,0
+2,2,1
+4,1,3
+4,2,1
+4,3,3
+4,4,5
+2,4,1
+3,4,4
+2,5,2
+        </pre
+            >
+        </div>
+
+        <div class="dark-container text-light">
+            <pre class="text-light">
+            <span class="attribute">@attribute</span> Dato1 <span class="data">real</span>
+            <span class="attribute">@attribute</span> Dato2 <span class="data">real</span>
+            <span class="attribute">@attribute</span> Dato3 <span class="data">real</span>
+            <span class="attribute">@data</span>
+            <span class="data">1,1,0</span>
+            <span class="data">2,1,1</span>
+            <span class="data">1,2,0</span>
+            <span class="data">2,2,1</span>
+            <span class="data">4,1,3</span>
+            <span class="data">4,2,1</span>
+            <span class="data">4,3,3</span>
+            <span class="data">4,4,5</span>
+            <span class="data">2,4,1</span>
+            <span class="data">3,4,4</span>
+            <span class="data">2,5,2</span>
+          </pre>
+        </div>
+
+        <!-- Agrega los enlaces a Bootstrap JS y Popper.js si los necesitas -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    </body>
+</html>
