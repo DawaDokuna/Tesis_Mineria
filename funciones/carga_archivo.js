@@ -185,13 +185,15 @@ function borrar_columna() {
 	columna_borrar = $("#select_delete_col").val();
 	if (archivo[0].split(".")[1] == "arff") {
 		var is_data = false;
-		var posision = 0;
+		var posicion = 0;
+		var iterador = 0;
 		lineas.forEach((element) => {
 			if (element.split(" ")[0] == "@attribute" && !is_data) {
 				if (element.split(" ")[1] != columna_borrar) {
 					archivo_nuevo.push(element);
+					iterador++;
 				} else {
-					posision = archivo_nuevo.length;
+					posicion = iterador;
 				}
 			} else if (element.split(" ")[0] == "@data") {
 				is_data = true;
@@ -199,7 +201,7 @@ function borrar_columna() {
 			} else if (is_data) {
 				var lineas_nuevas = [];
 				element.split(",").forEach((element2, index) => {
-					if (index != posision) {
+					if (index != posicion) {
 						lineas_nuevas.push(element2);
 					}
 				});
