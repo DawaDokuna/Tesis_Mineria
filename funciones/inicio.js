@@ -1,16 +1,3 @@
-const https = require('https');
-const fs = require('fs');
-
-const options = {
-    key: fs.readFileSync('key.pem'),
-    cert: fs.readFileSync('cert.pem')
-};
-
-https.createServer(options, (req, res) => {
-    
-}).listen(443);
-
-
 var url = new URL(window.location.href);
 var params = new URLSearchParams(url.search);
 var kMeansValue = params.get("algoritmo");

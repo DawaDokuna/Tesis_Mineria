@@ -6,7 +6,9 @@ async function printer() {
 		peticion.iteraciones = $("#max_iter").val();
 		peticion.random_state = $("#random_state").is(":checked");
 		peticion.datos = datos[0];
-		const response = await fetch(document.location.origin + ":8000/kmeans", {
+		let path = ''
+		//path = 'https://4zkiymupdz.loclx.io'
+		const response = await fetch(path + "/kmeans", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -44,7 +46,6 @@ async function printer() {
 		var contents = archivo[1];
 		var lines = contents.split("\n");
 		var newLines = [];
-		var encontrado = false;
 		if (archivo[0].split(".").pop() == "arff") {
 			lines.forEach((element) => {
 				if (element.includes("@data")) {

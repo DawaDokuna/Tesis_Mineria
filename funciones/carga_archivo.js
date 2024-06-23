@@ -389,10 +389,9 @@ $(document).ready(function () {
 	);
 	Dropzone.autoDiscover = false;
 	data_dropzone = new Dropzone("#dropzone", {
-		url: "./archivos/dropzone", 
+		url: new URL(window.location.href) + "/archivos/dropzone",
 		acceptedFiles: ".arff, .csv",
-		dictDefaultMessage:
-			"Arrastra un archivo aquí o haz clic para seleccionar un archivo ARFF o CSV.",
+		dictDefaultMessage: "Arrastra un archivo aquí o haz clic para seleccionar un archivo ARFF o CSV.",
 		maxFiles: 1,
 		uploadMultiple: false,
 		success: function (file) {
@@ -408,4 +407,5 @@ $(document).ready(function () {
 			archivo_nuevo = [];
 		},
 	});
+	
 });
