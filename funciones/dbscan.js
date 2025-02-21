@@ -1,5 +1,6 @@
 async function printer() {
 	if ($("#parametros_form")[0].checkValidity()) {
+		$("[name='iniciar']").prop('disabled', true);
 		const datos = format_data();
 		const peticion = {};
 		peticion.min_cluster = $("#min_cluster").val();
@@ -65,6 +66,7 @@ async function printer() {
 		$("#btn_centroides").attr("hidden", false);
 		$("#btn_centroides").data("tipo", 1);
 		cargar_tabla();
+		$("[name='iniciar']").prop('disabled', false);
 	}
 }
 

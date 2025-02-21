@@ -1,14 +1,13 @@
 async function printer() {
 	if ($("#parametros_form")[0].checkValidity()) {
+		$("[name='iniciar']").prop('disabled', true);
 		const datos = format_data();
 		const peticion = {};
 		peticion.clusters = $("#num_cluster").val();
 		peticion.iteraciones = $("#max_iter").val();
 		peticion.random_state = $("#random_state").is(":checked");
 		peticion.datos = datos[0];
-		let path = ''
-		//path = 'https://4zkiymupdz.loclx.io'
-		const response = await fetch(path + "/kmeans", {
+		const response = await fetch(document.location.origin + ":8000/kmeans", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -64,5 +63,6 @@ async function printer() {
 		$("#btn_centroides").attr("hidden", false);
 		$("#btn_centroides").data("tipo", 1);
 		cargar_tabla();
+		$("[name='iniciar']").prop('disabled', false);
 	}
 }

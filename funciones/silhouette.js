@@ -1,5 +1,6 @@
 async function printer() {
 	if ($("#parametros_form")[0].checkValidity()) {
+		$("[name='iniciar']").prop('disabled', true);
 		const datos = format_data();
 		const peticion = {};
 		peticion.datos = datos[0];
@@ -12,5 +13,6 @@ async function printer() {
 		});
 		$("#metric").html(JSON.parse(await response.json()).score);
 		$("#centros_card").attr("hidden", false);
+		$("[name='iniciar']").prop('disabled', false);
 	}
 }
