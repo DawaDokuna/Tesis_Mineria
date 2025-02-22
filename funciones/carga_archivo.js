@@ -102,6 +102,7 @@ function cargar_tabla() {
 			2
 		);
 	}
+	$("[name='iniciar']").prop('disabled', false);
 }
 function botonera() {
 	var btn = $("<button>")
